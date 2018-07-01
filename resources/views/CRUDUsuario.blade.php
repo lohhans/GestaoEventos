@@ -19,6 +19,10 @@
     		<input type="hidden" name="_token" value="{{ csrf_token() }}" />    			
     			<input  type="submit" value="deletar" />
     	</form>
+    	<form action="/listar/usuarios" method="get"> 
+    		<input type="hidden" name="_token" value="{{ csrf_token() }}" />    			
+    			<input  type="submit" value="listar" />
+    	</form>
     	
 	
     </body>
