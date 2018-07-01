@@ -34,3 +34,12 @@ Route::post('/cadastrar/area', "AreaController@cadastrarArea");
 Route::post('/remover/area', "AreaController@removerArea");
 
 Route::post('/atualizar/area', "AreaController@atualizarArea");
+
+Route::get('/tela/area', function (){
+	return view('telaAreas');
+});	
+	
+	
+	
+	
+	
