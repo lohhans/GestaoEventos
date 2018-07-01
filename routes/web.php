@@ -33,6 +33,11 @@ Route::get('/usuario', function (Request $request){
 	
 });
 
+Route::get('/cruds', function (Request $request){
+	return view('CRUDs');
+	
+});
+
 Route::post('/buscar/usuario', "UsuarioController@buscarUsuarioCpf");
 
 
