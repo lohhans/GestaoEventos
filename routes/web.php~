@@ -32,5 +32,3 @@ Route::get('/atualizar/area', function(Request $request){
 Route::post('/cadastrar/area', "AreaController@cadastrarArea");
 
 Route::post('/remover/area', "AreaController@removerArea");
-
-Route::post('/atualizar/area', "AreaController@atualizarArea");
