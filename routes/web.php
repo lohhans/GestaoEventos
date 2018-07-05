@@ -55,12 +55,19 @@ Route::get('/atualizar/area', function(Request $request){
 				return view('atualizarArea');	
 });
 
+Route::get('/login', function(Request $request){
+				return view('login');	
+});
+
 Route::post('/cadastrar/area', "AreaController@cadastrarArea");
 
 Route::post('/remover/area', "AreaController@removerArea");
 
 Route::post('/atualizar/area', "AreaController@atualizarArea");
 
+Route::post('/login', "UsuarioController@login");
+
 Route::get('/tela/area', function (){
 	return view('telaAreas');
 });	
+

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -56,7 +57,17 @@ class UsuarioController extends Controller
 		}
 		else{
 			return "<script>alert('Usuário não encontrado'); location= '/buscar/usuario';</script>";		
-		}
-		    
+		}    
     }
+    
+    public function login(Request $request){
+		$usuario = \App\Usuario::where([['login', '=', $request->login], ['senha', '=', $request->senha]])->get();
+		if(sizeof($usuario) == 0) {    
+    		throw new Exception ('Usuario nao cadastrado');
+    	}
+    	else {
+    		return redirect('/listar/usuarios');
+    		
+    	}
+	}    		
 }
