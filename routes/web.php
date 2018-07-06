@@ -69,5 +69,39 @@ Route::post('/login', "UsuarioController@login");
 
 Route::get('/tela/area', function (){
 	return view('telaAreas');
-});	
+});
+
+//ARMSTRONG - VOUCHERS
+
+Route::get('/listar/vouchers', "VoucherController@listarVouchers");
+
+Route::get('/adicionar/voucher', function (Request $request){
+	return view('adicionarVoucher');
+
+});
+
+Route::post('/adicionar/voucher', "VoucherController@adicionarVoucher");
+
+Route::get('/deletar/voucher', function (Request $request){
+	return view('deletarVoucher');
+
+});
+
+Route::post('/deletar/voucher', "VoucherController@deletarVoucher");
+
+Route::get('/buscar/voucher', function (Request $request){
+	return view('buscarVoucher');
+
+});
+
+Route::post('/buscar/voucher', "VoucherController@buscarVoucherDescricao");
+
+Route::post('/atualizar/voucher', "VoucherController@atualizarVoucher");
+
+Route::get('/voucher', function (Request $request){
+	return view('CRUDVoucher');
+
+});
+
+
 
