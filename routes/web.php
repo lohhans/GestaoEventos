@@ -103,5 +103,37 @@ Route::get('/voucher', function (Request $request){
 
 });
 
+//EVENTOS
+
+Route::get('/listar/eventos', "EventoController@listarEventos");
+
+Route::get('/adicionar/evento', function (Request $request){
+	return view('adicionarEvento');
+
+});
+
+Route::post('/adicionar/evento', "EventoController@adicionarEvento");
+
+Route::get('/deletar/evento', function (Request $request){
+	return view('deletarEvento');
+
+});
+
+Route::post('/deletar/evento', "EventoController@deletarEvento");
+
+Route::get('/buscar/evento', function (Request $request){
+	return view('buscarEvento');
+
+});
+
+Route::post('/buscar/evento', "EventoController@buscarEventoDescricao");
+
+Route::post('/atualizar/evento', "EventoController@atualizarEvento");
+
+Route::get('/evento', function (Request $request){
+	return view('CRUDEvento');
+
+});
+
 
 
