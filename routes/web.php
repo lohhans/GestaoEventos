@@ -1,6 +1,5 @@
 <?php
 
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -9,14 +8,14 @@ Route::get('/listar/usuarios', "UsuarioController@listarUsuarios");
 
 Route::get('/adicionar/usuario', function (Request $request){
 	return view('adicionarUsuario');
-	
+
 });
 
 Route::post('/adicionar/usuario', "UsuarioController@adicionarUsuario");
 
 Route::get('/deletar/usuario', function (Request $request){
 	return view('deletarUsuario');
-	
+
 });
 
 Route::post('/deletar/usuario', "UsuarioController@deletarUsuario");
@@ -25,17 +24,17 @@ Route::post('/atualizar/usuario', "UsuarioController@atualizarUsuario");
 
 Route::get('/buscar/usuario', function (Request $request){
 	return view('buscarUsuario');
-	
+
 });
 
 Route::get('/usuario', function (Request $request){
 	return view('CRUDUsuario');
-	
+
 });
 
 Route::get('/cruds', function (Request $request){
 	return view('CRUDs');
-	
+
 });
 
 Route::post('/buscar/usuario', "UsuarioController@buscarUsuarioCpf");
@@ -48,15 +47,15 @@ Route::get('/cadastrar/area', function (Request $request) {
 });
 
 Route::get('/remover/area', function(Request $request){
-				return view('removerArea');	
+				return view('removerArea');
 });
 
 Route::get('/atualizar/area', function(Request $request){
-				return view('atualizarArea');	
+				return view('atualizarArea');
 });
 
 Route::get('/login', function(Request $request){
-				return view('login');	
+				return view('login');
 });
 
 Route::post('/cadastrar/area', "AreaController@cadastrarArea");
@@ -134,6 +133,3 @@ Route::get('/evento', function (Request $request){
 	return view('CRUDEvento');
 
 });
-
-
-
