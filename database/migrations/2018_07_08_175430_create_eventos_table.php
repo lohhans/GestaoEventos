@@ -15,13 +15,12 @@ class CreateEventosTable extends Migration
     {
         Schema::create('eventos', function (Blueprint $table) {
             $table->increments('id');
-				$table->string('localizacao');
-				$table->string('descricao');				
-				$table->dateTime('dataInicio');
+				    $table->string('localizacao');
+				    $table->string('descricao');
+				    $table->dateTime('dataInicio');
             $table->dateTime('dataFim');
-            $table->dateTime('dataPagamento');            
+            $table->dateTime('dataPagamento');
             $table->integer('area_id')->unsigned;
-            
             $table->timestamps();
             $table->foreign('area_id')->references('id')->on('areas');
         });
