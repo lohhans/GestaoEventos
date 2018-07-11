@@ -22,7 +22,7 @@ class CreateUsuariosTable extends Migration
             $table->string('senha');
             $table->integer('tipousuario_id')->unsigned;
             $table->timestamps();
-            $table->foreign('tipousuario_id')->references('id')->on('tipo_usuarios');
+            $table->foreign('tipousuario_id')->references('id')->on('tipousuarios');
         });
     }
 
