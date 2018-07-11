@@ -21,7 +21,9 @@ class UsuarioController extends Controller
     		$usuario->cpf = $request->cpf;
     		$usuario->login = $request->login;
     		$usuario->senha = $request->senha;
-    		$usuario->tipousuario_id = $request->tipousuario_id;
+    		
+    		$tu = \App\Tipousuario::find($request->tipousuario_id);
+    		$usuario->tipousuario_id = $request->tipousuario_id;// $request->tipousuario_id;
     		$usuario->save();
     		return redirect('/listar/usuarios');			
 		}
