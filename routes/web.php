@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('telaInicial');
 });
 
 Route::get('/listar/usuarios', "UsuarioController@listarUsuarios");
@@ -66,7 +66,7 @@ Route::post('/atualizar/area', "AreaController@atualizarArea");
 
 Route::post('/login', "UsuarioController@login");
 
-Route::get('/tela/area', function (){
+Route::get('/area', function (){
 	return view('telaAreas');
 });
 
