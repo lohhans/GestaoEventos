@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
+	public function validarDados(Request $request){
+		if($request->nome === NULL OR $request->email === NULL OR $request->cpf === NULL OR $request->login === NULL OR $request->senha === NULL OR $request->tipousuario_id === NULL){
+			return true;		
+		}		
+		else{
+			return false;
+		}   
+   }        
+    
     public function listarUsuarios(){
 		$usuarios = \App\Usuario::all();
 		return view('listarUsuarios', ['usuarios' => $usuarios]);    
@@ -14,6 +23,9 @@ class UsuarioController extends Controller
     
     public function cadastrarUsuario(Request $request){
 		$usuarios = \App\Usuario::where('cpf', '=', $request->cpf)->orWhere('email', '=', $request->email)->orWhere('login', '=', $request->login)->get();    	
+		if($this->validarDados($request)){
+    		throw new Exception('Preencha todos os campos!');
+    	}	
 		if(sizeof($usuarios) == 0){
 			$usuario = new \App\Usuario();
     		$usuario->nome = $request->nome;
