@@ -1,17 +1,19 @@
 <?php
-
+//Tela Inicial - Lohhans
 Route::get('/', function () {
     return view('telaInicial');
 });
 
+//Usuario - Elyson
+
 Route::get('/listar/usuarios', "UsuarioController@listarUsuarios");
 
-Route::get('/adicionar/usuario', function (Request $request){
-	return view('adicionarUsuario');
+Route::get('/cadastrar/usuario', function (Request $request){
+	return view('cadastrarUsuario');
 
 });
 
-Route::post('/adicionar/usuario', "UsuarioController@adicionarUsuario");
+Route::post('/cadastrar/usuario', "UsuarioController@cadastrarUsuario");
 
 Route::get('/deletar/usuario', function (Request $request){
 	return view('deletarUsuario');
@@ -27,18 +29,21 @@ Route::get('/buscar/usuario', function (Request $request){
 
 });
 
+Route::post('/buscar/usuario', "UsuarioController@buscarUsuarioCpf");
+
 Route::get('/usuario', function (Request $request){
 	return view('CRUDUsuario');
 
 });
+
+//Tela de CRUDS
 
 Route::get('/cruds', function (Request $request){
 	return view('CRUDs');
 
 });
 
-Route::post('/buscar/usuario', "UsuarioController@buscarUsuarioCpf");
-
+//Area - Gabrielle
 
 Route::get('/listar/areas', "AreaController@listarAreas");
 
@@ -67,19 +72,19 @@ Route::post('/atualizar/area', "AreaController@atualizarArea");
 Route::post('/login', "UsuarioController@login");
 
 Route::get('/area', function (){
-	return view('telaAreas');
+	return view('CRUDAreas');
 });
 
-//ARMSTRONG - VOUCHERS
+//Voucher - Lohhans
 
 Route::get('/listar/vouchers', "VoucherController@listarVouchers");
 
-Route::get('/adicionar/voucher', function (Request $request){
-	return view('adicionarVoucher');
+Route::get('/cadastrar/voucher', function (Request $request){
+	return view('cadastrarVoucher');
 
 });
 
-Route::post('/adicionar/voucher', "VoucherController@adicionarVoucher");
+Route::post('/cadastrar/voucher', "VoucherController@cadastrarVoucher");
 
 Route::get('/deletar/voucher', function (Request $request){
 	return view('deletarVoucher');
@@ -102,16 +107,16 @@ Route::get('/voucher', function (Request $request){
 
 });
 
-//EVENTOS
+//Eventos - Antonio
 
 Route::get('/listar/eventos', "EventoController@listarEventos");
 
-Route::get('/adicionar/evento', function (Request $request){
-	return view('adicionarEvento');
+Route::get('/cadastrar/evento', function (Request $request){
+	return view('cadastrarEvento');
 
 });
 
-Route::post('/adicionar/evento', "EventoController@adicionarEvento");
+Route::post('/cadastrar/evento', "EventoController@cadastrarEvento");
 
 Route::get('/deletar/evento', function (Request $request){
 	return view('deletarEvento');

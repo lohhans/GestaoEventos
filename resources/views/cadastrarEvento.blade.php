@@ -16,13 +16,12 @@
 
             <nav>
                 <div class="nav-wrapper">
-                    <a href="/" class="brand-logo resposive">Pensalight</a>
+                    <a href="#!" class="brand-logo resposive">Pensalight</a>
                     <a href="" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
                     <!-- Menu para Desktops -->
                     <ul class="right hide-on-med-and-down">
                         <li><a href="area">Área</a></li>
-                        <li><a href="cruds">CRUDS</a></li>
                         <li><a href="evento">Evento</a></li>
                         <li><a href="usuario">Usuário</a></li>
                         <li><a href="voucher">Voucher</a></li>
@@ -31,34 +30,27 @@
                     <!-- Menu para dispositivos móveis -->
                     <ul class="sidenav hide-on-large-only" id="slide-out">
                         <li><a href="area">Área</a></li>
-                        <li><a href="cruds">CRUDS</a></li>
                         <li><a href="evento">Evento</a></li>
                         <li><a href="usuario">Usuário</a></li>
                         <li><a href="voucher">Voucher</a></li>
+                    </ul>
 
                 </div>
             </nav>
 
-            <h1>Voucher</h1>
+            <h1>Cadastrar Evento</h1>
 
-            <form action="/cadastrar/voucher" method="get">
+            <form action="/cadastrar/evento" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                <input  type="submit" value="Cadastrar" />
-            </form>
 
-            <form action="/buscar/voucher" method="get">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                <input  type="submit" value="Atualizar" />
-            </form>
+                Localizacao: <input type="text" name="localizacao" ><br/>
+                Descricao: <input type="text" name="descricao" ><br/>
+                Data inicial: <input type="datetime" name="dataInicio" ><br/>
+                Data final: <input type="datetime" name="dataFim" ><br/>
+                Data de pagamento: <input type="datetime" name="dataPagamento" ><br/>
+                Codigo da area: <input type="text" name="area_id" ><br/>
 
-            <form action="/deletar/voucher" method="get">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                <input  type="submit" value="Deletar" />
-            </form>
-
-            <form action="/listar/vouchers" method="get">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                <input  type="submit" value="Listar" />
+                <input  type="submit" value="cadastrar" />
             </form>
 
             <!-- Importa os arquivos Jquery e JS -->
