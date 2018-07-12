@@ -9,10 +9,8 @@ class UsuarioSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        for($i = 0; $i < 10; $i++){
-				DB::table('usuarios')->insert(['nome' => 'elyson'. $i, 'email' => 'elyson@' . $i, 'cpf' => ''.$i.$i.$i.$i.$i.$i.$i.$i.$i.$i.$i.'', 'login' => 'elyson' . $i, 'senha' => $i, 'tipousuario_id' => rand(1,5)]);        
-        }
+
+    public function run(){
+      factory(App\Usuario::class, 8)->create();
     }
 }
