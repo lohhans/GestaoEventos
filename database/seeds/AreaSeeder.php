@@ -9,10 +9,10 @@ class AreaSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        for($i = 0; $i < 10; $i++){
-				      DB::table('areas')->insert(['descricao' => 'area'. $i]);
-        }
-    }
+     public function run()
+     {
+         for($i = 0; $i < 10; $i++){
+ 				      DB::table('areas')->insert(['descricao' => 'area'. $i]);
+         }
+     }
 }
