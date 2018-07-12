@@ -12,7 +12,7 @@ class EventoController extends Controller
         return view('listarEventos', ['eventos' => $eventos]);
   }
 
-  public function adicionarEvento(Request $request){
+  public function cadastrarEvento(Request $request){
       $eventos = \App\Evento::where('descricao', '=', $request->descricao)->get();
 			$dataAtual = date('d/m/y');
       if(sizeof($eventos) > 0) {
