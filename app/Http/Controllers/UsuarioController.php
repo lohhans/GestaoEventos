@@ -12,7 +12,7 @@ class UsuarioController extends Controller
 		return view('listarUsuarios', ['usuarios' => $usuarios]);    
     }
     
-    public function adicionarUsuario(Request $request){
+    public function cadastrarUsuario(Request $request){
 		$usuarios = \App\Usuario::where('cpf', '=', $request->cpf)->orWhere('email', '=', $request->email)->orWhere('login', '=', $request->login)->get();    	
 		if(sizeof($usuarios) == 0){
 			$usuario = new \App\Usuario();
