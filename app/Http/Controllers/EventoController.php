@@ -70,6 +70,7 @@ class EventoController extends Controller
         $evento->update();
         return redirect('/listar/eventos');
     }
+	}
 
     public function buscarEventoDescricao(Request $request){
         $eventos = \App\Evento::where('descricao', '=', $request->descricao)->get();
