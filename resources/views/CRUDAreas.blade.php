@@ -35,31 +35,32 @@
                         <li><a href="evento">Evento</a></li>
                         <li><a href="usuario">Usuário</a></li>
                         <li><a href="voucher">Voucher</a></li>
+                    </ul>
 
                 </div>
             </nav>
 
-            <h1>Voucher</h1>
+            <h1>Área</h1>
 
-            <form action="/cadastrar/voucher" method="get">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                <input  type="submit" value="Cadastrar" />
-            </form>
+        	<form action="/cadastrar/area" method="get">
+        		<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+    				<input  type="submit" value="Cadastrar" />
+        	</form>
 
-            <form action="/buscar/voucher" method="get">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                <input  type="submit" value="Atualizar" />
-            </form>
+        	<form action="/atualizar/area" method="get">
+        		<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+    				<input  type="submit" value="Atualizar" />
+        	</form>
 
-            <form action="/deletar/voucher" method="get">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                <input  type="submit" value="Deletar" />
-            </form>
+            <form action="/remover/area" method="get">
+        		<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+    				<input  type="submit" value="Deletar" />
+        	</form>
 
-            <form action="/listar/vouchers" method="get">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                <input  type="submit" value="Listar" />
-            </form>
+            <form action="/listar/areas" method="get">
+        		<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+    				<input  type="submit" value="Listar" />
+        	</form>
 
             <!-- Importa os arquivos Jquery e JS -->
             <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>

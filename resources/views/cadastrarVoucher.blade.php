@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-    <title>Adicionar Voucher</title>
+    <title>cadastrar Voucher</title>
 
 </head>
 <body>
-<h1>Adicionar Voucher</h1>
+<h1>cadastrar Voucher</h1>
 
-<form action="/adicionar/voucher" method="post">
+<form action="/cadastrar/voucher" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     Descricao: <input type="text" name="descricao" ><br/>
     Limite: <input type="text" name="limite" ><br/>

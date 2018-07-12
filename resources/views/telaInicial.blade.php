@@ -1,5 +1,5 @@
 <!doctype html>
-    <html>
+    <html lang="{{ app()->getLocale() }}">
         <head>
             <meta charset="utf-8">
             <!-- Permite que o navegador saiba que o site é otimizado para mobiles -->
@@ -15,27 +15,29 @@
         <body>
 
             <nav>
-              <div class="nav-wrapper">
-                <a href="#!" class="brand-logo">Pensalight - Gestão de Eventos</a>
-                <a href="" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <div class="nav-wrapper">
+                    <a href="/" class="brand-logo">Pensalight</a>
+                    <a href="" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-                <!-- Menu para Desktops -->
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="area">Área</a></li>
-                    <li><a href="evento">Evento</a></li>
-                    <li><a href="usuario">Usuário</a></li>
-                    <li><a href="voucher">Voucher</a></li>
-                </ul>
+                    <!-- Menu para Desktops -->
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="area">Área</a></li>
+                        <li><a href="cruds">CRUDS</a></li>
+                        <li><a href="evento">Evento</a></li>
+                        <li><a href="usuario">Usuário</a></li>
+                        <li><a href="voucher">Voucher</a></li>
+                    </ul>
 
-                <!-- Menu para dispositivos móveis -->
-                <ul class="sidenav hide-on-large-only" id="slide-out">
-                    <li><a href="area">Área</a></li>
-                    <li><a href="evento">Evento</a></li>
-                    <li><a href="usuario">Usuário</a></li>
-                    <li><a href="voucher">Voucher</a></li>
-                </ul>
+                    <!-- Menu para dispositivos móveis -->
+                    <ul class="sidenav hide-on-large-only" id="slide-out">
+                        <li><a href="area">Área</a></li>
+                        <li><a href="cruds">CRUDS</a></li>
+                        <li><a href="evento">Evento</a></li>
+                        <li><a href="usuario">Usuário</a></li>
+                        <li><a href="voucher">Voucher</a></li>
+                    </ul>
 
-              </div>
+                </div>
             </nav>
 
             <!-- Importa os arquivos Jquery e JS -->
