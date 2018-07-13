@@ -12,7 +12,7 @@ class VoucherController extends Controller
         return view('listarVouchers', ['vouchers' => $vouchers]);
     }
 
-    public function adicionarVoucher(Request $request)
+    public function cadastrarVoucher(Request $request)
     {
         $vouchers = \App\Voucher::where('descricao', '=', $request->descricao)->get();
         if (sizeof($vouchers) == 0) {
