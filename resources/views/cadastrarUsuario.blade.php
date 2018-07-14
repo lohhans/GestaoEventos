@@ -1,15 +1,18 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-            <title>cadastrar Usuario</title>
-            <meta charset="utf-8">
-       	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-       	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-            <link rel="stylesheet" href="css/custom.css">
-
+        <meta charset="utf-8">
+        <!-- Permite que o navegador saiba que o site é otimizado para mobiles -->
+        <meta name="viewport" content="width-device-width, initial-scale-1.0">
+        <!-- Titulo da aba da página -->
+        <title>Pensalight</title>
+        <!-- Importa a fonte de ícones do Google -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Importa os arquivos CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/custom.css">
     </head>
+
     <body>
     	<h1 id = "labelCadastroUsuario" class="display-4 center">Cadastro de Usuário</h1>
 
