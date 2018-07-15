@@ -1,10 +1,10 @@
 <?php
-//Tela Inicial - Lohhans
+//Tela Inicial
 Route::get('/', function () {
     return view('telaInicial');
 });
 
-//Usuario - Elyson
+//Usuario
 
 Route::get('/listar/usuarios', "UsuarioController@listarUsuarios");
 
@@ -43,7 +43,7 @@ Route::get('/cruds', function (Request $request){
 
 });
 
-//Area - Gabrielle
+//Area
 
 Route::get('/listar/areas', "AreaController@listarAreas");
 
@@ -75,7 +75,7 @@ Route::get('/area', function (){
 	return view('CRUDAreas');
 });
 
-//Voucher - Lohhans
+//Voucher
 
 Route::get('/listar/vouchers', "VoucherController@listarVouchers");
 
@@ -107,7 +107,7 @@ Route::get('/voucher', function (Request $request){
 
 });
 
-//Eventos - Antonio
+//Eventos
 
 Route::get('/listar/eventos', "EventoController@listarEventos");
 
@@ -138,3 +138,11 @@ Route::get('/evento', function (Request $request){
 	return view('CRUDEvento');
 
 });
+
+//Atividade
+
+Route::get('/listar/atividades', "AtividadeController@listarAtividades");
+
+//Inscricao
+
+Route::get('/listar/inscricoes', "InscricaoController@listarInscricoes");
