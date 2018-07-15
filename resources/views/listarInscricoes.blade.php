@@ -28,6 +28,7 @@
 						      <th scope="col">Usuario</th>
 						      <th scope="col">Evento</th>
                               <th scope="col">Voucher</th>
+
 						    </tr>
 						  </thead>
 				  		<tbody>
@@ -45,6 +46,55 @@
 							  <td><?php echo $inscricao->evento->descricao ?></td>
                               <td><?php echo $inscricao->voucher->descricao ?></td>
 						    </tr>
+							<?php
+							}
+							?>
+
+					  	</tbody>
+					</table>
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+		</div>
+
+		<h1>Boletos</h1>
+
+		<div class="container">
+			<div class="row justify-content-sm-center">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-8">
+
+					<table class="table">
+					  	<thead>
+						    <tr>
+						      <th scope="col">#</th>
+						      <th scope="col">Numero de Inscricao</th>
+							  <th scope="col">Usuário</th>
+						      <th scope="col">Numero Boleto</th>
+						      <th scope="col">Data Vencimento</th>
+
+						    </tr>
+						  </thead>
+				  		<tbody>
+							<?php
+							$i = 0;
+				  			foreach($inscricoes as $inscricao){
+
+								$boletos = $inscricao->boletos;
+								foreach ($boletos as $boleto) {
+
+								?>
+								<tr>
+							      <th scope="row"><?php echo $i ?></th>
+								  <td><?php echo $inscricao->id ?></td>
+								  <td><?php echo $inscricao->usuario->nome ?></td>
+								  <td><?php echo $boleto->id ?></td>
+								  <td><?php echo $boleto->dataVencimento ?></td>
+							    </tr>
+								<?php
+								}
+								?>
+
 							<?php
 							}
 							?>

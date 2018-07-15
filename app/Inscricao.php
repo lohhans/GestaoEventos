@@ -18,4 +18,9 @@ class Inscricao extends Model{
 		return $this->belongsTo('App\Voucher');
     }
 
+    public function boletos(){
+		    return $this->belongsToMany('App\Boleto');
+    }
+
+
 }
