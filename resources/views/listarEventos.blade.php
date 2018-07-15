@@ -108,6 +108,55 @@
 			</div>
 		</div>
 
+		<h1>Usuarios</h1>
+
+		<div class="container">
+			<div class="row justify-content-sm-center">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-8">
+
+					<table class="table">
+					  	<thead>
+						    <tr>
+						      <th scope="col">#</th>
+						      <th scope="col">ID Evento</th>
+							  <th scope="col">Descricao Evento</th>
+						      <th scope="col">CPF Usuario</th>
+						      <th scope="col">Nome Usuario</th>
+
+						    </tr>
+						  </thead>
+				  		<tbody>
+							<?php
+							$i = 0;
+				  			foreach($eventos as $evento){
+
+								$usuarios = $evento->usuarios;
+								foreach ($usuarios as $usuario) {
+
+								?>
+								<tr>
+							      <th scope="row"><?php echo $i ?></th>
+								  <td><?php echo $evento->id ?></td>
+								  <td><?php echo $evento->descricao ?></td>
+								  <td><?php echo $usuario->cpf ?></td>
+								  <td><?php echo $usuario->nome ?></td>
+							    </tr>
+								<?php
+								}
+								?>
+
+							<?php
+							}
+							?>
+
+					  	</tbody>
+					</table>
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+		</div>
+
 
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

@@ -22,4 +22,9 @@ class Evento extends Model{
 		return $this->belongsToMany('App\Voucher');
   	}
 
+	public function usuarios(){
+		return $this->belongsToMany('App\Usuario');
+  	}
+
+
 }
