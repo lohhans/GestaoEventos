@@ -36,5 +36,6 @@ class CreateInscricaosTable extends Migration
     public function down()
     {
         Schema::dropIfExists('inscricaos');
+        Schema::dropIfExists('boleto_inscricao');
     }
 }
