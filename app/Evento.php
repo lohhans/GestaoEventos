@@ -10,7 +10,12 @@ class Evento extends Model
 		return $this->belongsTo('App\Area');
    }
 
-   public function evento(){
-	   return $this->hasOne('App\Atividade');   
+   public function atividade(){
+	   return $this->hasOne('App\Atividade');
   }
+
+  public function boleto(){
+	  return $this->hasMany('App\Inscricao');
+  }
+
 }

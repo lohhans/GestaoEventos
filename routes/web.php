@@ -142,3 +142,7 @@ Route::get('/evento', function (Request $request){
 //Atividade
 
 Route::get('/listar/atividades', "AtividadeController@listarAtividades");
+
+//Inscricao
+
+Route::get('/listar/inscricoes', "InscricaoController@listarInscricoes");
