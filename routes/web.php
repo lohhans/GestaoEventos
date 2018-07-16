@@ -1,7 +1,7 @@
 <?php
 //Tela Inicial
 Route::get('/', function () {
-    return view('telaInicial');
+    return view('index');
 });
 
 //Usuario
