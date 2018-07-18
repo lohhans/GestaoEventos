@@ -30,9 +30,8 @@ hr.linha-branca-compacta{
     right: 0;
 }
 
-#carouselExampleIndicators{
-    color: #000000;
-    /* background-color: #000000; */
+div.alinha{
+    padding-top: 1em
 }
 
 /* [inicio] Sobrescrita do CSS freelancer */
@@ -162,11 +161,17 @@ hr.linha-branca-compacta{
 
 #mainNav .navbar-nav>li.nav-item>a.nav-link.active {
     color: #fff;
-    background: #2c3e50
 }
 #mainNav .navbar-nav>li.nav-item>a.nav-link.active:active, #mainNav .navbar-nav>li.nav-item>a.nav-link.active:focus, #mainNav .navbar-nav>li.nav-item>a.nav-link.active:hover {
     color: #fff;
-    background: #2c3e50
+}
+
+.portfolio .portfolio-item .portfolio-item-caption {
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+    transition: all ease .5s;
+    opacity: 0;
+    background-color: rgb(44, 62, 80, .5);
 }
 
 /* [fim] Sobrescrita do CSS freelancer */
