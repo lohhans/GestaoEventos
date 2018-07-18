@@ -33,7 +33,7 @@
         <!-- Navegação -->
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="/">Pensalight</a>
+                <a class="navbar-brand js-scroll-trigger" href="#inicio">Pensalight</a>
                 <button class="navbar-toggler bg-primary navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fa fa-bars"></i>
@@ -55,9 +55,9 @@
         </nav>
 
         <!-- Header -->
-        <header class="masthead bg-white text-secondary text-center">
+        <header class="masthead bg-white text-secondary text-center" id="inicio">
             <div class="container">
-                <img class="img-fluid mb-5 d-block mx-auto" src="img/logoRedondo.png" alt="" style="width:300; height:300px;">
+                <img class="img-fluid mb-5 d-block mx-auto" src="img/logoRedondo.png" alt="" style="width:250; height:250px;">
                 <h1 class="text-uppercase mb-0">Gestão de Eventos</h1>
                 <hr class="linha-escura-completa">
                 <h2 class="font-weight-light mb-0">Fique por dentro do que esá acontecendo na faculdade!</h2>
@@ -139,7 +139,7 @@
         <section class="portfolio bg-primary text-white mb-0" id="slide">
             <div class="container">
                 <h2 class="text-center text-uppercase">Próximos eventos...</h2>
-                <hr class="linha-branca-compacta mb-5">
+                <hr class="star-light mb-5">
             </div>
 
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -151,7 +151,7 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="container" id="blocosEventos">
+                        <div class="container">
                             <div class="row">
 
                                 <!-- geracao de bloco no container -->
@@ -329,8 +329,12 @@
                 <div class="row">
                     <div class="col-md-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Localização</h4>
-                        <p class="lead mb-0">Avenida Bom Pastor, s/n - Boa Vista
-                        <br>Garanhuns - PE, Brasil. CEP 55292-270</p>
+                        <p class="lead mb-0">
+                            <a href="https://goo.gl/ovCoMH">UFRPE - UAG<br>
+                                Avenida Bom Pastor, s/n - Boa Vista,<br>
+                                Garanhuns - PE, 55292-270, Brazil
+                            </a>
+                        </p>
                     </div>
                     <div class="col-md-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Na internet</h4>
@@ -395,12 +399,12 @@
         <!-- Portfolio Modal 1 -->
         <div class="portfolio-modal mfp-hide" id="portfolio-modal-1">
             <div class="portfolio-modal-dialog bg-white">
-                <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+                <a class="close-button d-md-block portfolio-modal-dismiss" href="#">
                     <i class="fa fa-3x fa-times"></i>
                 </a>
                 <div class="container text-center">
                     <div class="row">
-                        <div class="col-lg-8 mx-auto">
+                        <div class="col-lg-8 mx-auto alinha">
                             <h2 class="text-secondary text-uppercase mb-0">Project Name</h2>
                             <hr class="star-dark mb-5">
                             <img class="img-fluid mb-5" src="img/portfolio/cabin.png" alt="">
@@ -408,7 +412,6 @@
                             <a class="btn btn-primary btn-lg rounded-pill" href="/cruds">
                                 <i class="fa fa-address-card"></i>
                             Inscrever-se</a>
-
                         </div>
                     </div>
                 </div>
