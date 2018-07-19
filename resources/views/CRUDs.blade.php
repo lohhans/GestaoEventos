@@ -1,81 +1,198 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
+
     <head>
+
         <meta charset="utf-8">
-        <!-- Permite que o navegador saiba que o site é otimizado para mobiles -->
-        <meta name="viewport" content="width-device-width, initial-scale-1.0">
-        <!-- Titulo da aba da página -->
-        <title>Pensalight - GE</title>
-        <!-- Importa a fonte de ícones do Google -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- Importa os arquivos CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/custom.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Atualizar Área</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Fontes customizadas -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Plugin CSS -->
+        <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+        <!-- Estilos CSS customizados -->
+        <link href="css/freelancer.min.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
+        <link href="css/w3.css" rel="stylesheet">
+
     </head>
 
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #00838F;">
-            <a class="navbar-brand" href="#">Pensalight</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cruds">CRUDS</a>
-                    </li>
-                    <!-- Daqui para baixo não foi implementado a barra! (teste) -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+        <!-- Navegação -->
+        <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="/">Pensalight</a>
+                <button class="navbar-toggler bg-primary navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/cruds">CRUDS</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#slide">Eventos</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contato</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <!-- Até aqui! -->
         </nav>
 
-        <h1 class="text-center">CRUDS</h1>
+        <!-- CRUDS -->
+        <section id="cruds">
+            <div class="alinha"></div>
+            <div class="container text-center">
+                <h2 class="text-center text-uppercase text-secondary mb-0">CRUDS</h2>
+                <hr class="star-dark mb-5">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <!-- CRUDS -->
+                        <a class="btn btn-primary btn-lg rounded-pill text-center" href="/area" id="botaoMedio">
+                            <i class="fa fa-caret-right"></i>
+                            Área
+                        </a>
 
-        <form class="text-center" action="/area" method="get">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-            <input  type="submit" value="Área" class="btn btn-primary"/>
-        </form></br>
+                        <div class="alinha"></div>
 
-        <form class="text-center" action="/evento" method="get">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-            <input  type="submit" value="Evento" class="btn btn-primary"/>
-        </form></br>
+                        <a class="btn btn-primary btn-lg rounded-pill" href="/evento" id="botaoMedio">
+                            <i class="fa fa-caret-right"></i>
+                            Evento
+                        </a>
 
-        <form class="text-center" action="/usuario" method="get">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-            <input  type="submit" value="Usuário" class="btn btn-primary"/>
-        </form></br>
+                        <div class="alinha"></div>
 
-        <form class="text-center" action="/voucher" method="get">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-            <input  type="submit" value="Voucher" class="btn btn-primary"/>
-        </form></br>
 
-        <!-- Importa os arquivos Jquery e JS no fim do body para maior otimização -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+                        <a class="btn btn-primary btn-lg rounded-pill" href="/usuario" id="botaoMedio">
+                            <i class="fa fa-caret-right"></i>
+                            Usuário
+                        </a>
+
+                        <div class="alinha"></div>
+
+                        <a class="btn btn-primary btn-lg rounded-pill" href="/voucher" id="botaoMedio">
+                            <i class="fa fa-caret-right"></i>
+                            Voucher
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Header -->
+        <header>
+            <div class="alinha"></div>
+            <div class="alinha"></div>
+            <div class="alinha"></div>
+            <div class="alinha"></div>
+            <div class="alinha"></div>
+            <div class="alinha"></div>
+            <div class="alinha"></div>
+        </header>
+
+        <!-- Rodapé -->
+        <footer class="footer text-center bg-secondary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Localização</h4>
+                        <p class="lead mb-0">
+                            <a href="https://goo.gl/ovCoMH">UFRPE - UAG<br>
+                                Avenida Bom Pastor, s/n - Boa Vista,<br>
+                                Garanhuns - PE, 55292-270, Brazil
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-md-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Na internet</h4>
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item">
+                                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                                    <i class="fa fa-fw fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                                    <i class="fa fa-fw fa-google-plus"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                                    <i class="fa fa-fw fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                                    <i class="fa fa-fw fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                                    <i class="fa fa-fw fa-dribbble"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                            <h4 class="text-uppercase mb-4">Sobre os desenvolvedores</h4>
+                            <p class="lead mb-0">Site criado por
+                            <a href="https://github.com/AntonioAdelino">Antônio Adelino</a>,
+                            <a href="https://github.com/lohhans">Armstrong Lohãns</a>,
+                            <a href="https://github.com/elysonromeiro">Elyson Romeiro</a> e
+                            <a href="https://github.com/GabrielleAmorim">Gabrielle Amorim</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="copyright py-4 text-center text-white bg-terciary">
+            <div class="container">
+                <small>Copyright &copy; #4t
+                    <a href="https://github.com/elysonromeiro/GestaoEventos">Veja no GitHub!</a>
+                </small>
+            </div>
+        </div>
+
+        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+        <div class="scroll-to-top d-lg-none position-fixed ">
+            <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+                <i class="fa fa-chevron-up"></i>
+            </a>
+        </div>
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Plugin JavaScript -->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+        <!-- Contact Form JavaScript -->
+        <script src="js/jqBootstrapValidation.js"></script>
+        <script src="js/contact_me.js"></script>
+
+        <!-- Custom scripts for this template -->
+        <script src="js/freelancer.min.js"></script>
+        <script src="js/custom.js"></script>
+
     </body>
+
 </html>

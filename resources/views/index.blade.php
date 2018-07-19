@@ -330,7 +330,7 @@
                     <div class="col-md-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Localização</h4>
                         <p class="lead mb-0">
-                            <a href="https://goo.gl/ovCoMH">UFRPE - UAG<br>
+                            <a href="https://goo.gl/ovCoMH"  target="_blank">UFRPE - UAG<br>
                                 Avenida Bom Pastor, s/n - Boa Vista,<br>
                                 Garanhuns - PE, 55292-270, Brazil
                             </a>
@@ -369,10 +369,10 @@
                     <div class="col-md-4">
                             <h4 class="text-uppercase mb-4">Sobre os desenvolvedores</h4>
                             <p class="lead mb-0">Site criado por
-                            <a href="https://github.com/AntonioAdelino">Antônio Adelino</a>,
-                            <a href="https://github.com/lohhans">Armstrong Lohãns</a>,
-                            <a href="https://github.com/elysonromeiro">Elyson Romeiro</a> e
-                            <a href="https://github.com/GabrielleAmorim">Gabrielle Amorim</a>.
+                            <a href="https://github.com/AntonioAdelino" target="_blank">Antônio Adelino</a>,
+                            <a href="https://github.com/lohhans" target="_blank">Armstrong Lohãns</a>,
+                            <a href="https://github.com/elysonromeiro" target="_blank">Elyson Romeiro</a> e
+                            <a href="https://github.com/GabrielleAmorim" target="_blank">Gabrielle Amorim</a>.
                         </p>
                     </div>
                 </div>
@@ -382,7 +382,7 @@
         <div class="copyright py-4 text-center text-white bg-terciary">
             <div class="container">
                 <small>Copyright &copy; #4t
-                    <a href="https://github.com/elysonromeiro/GestaoEventos">Veja no GitHub!</a>
+                    <a href="https://github.com/elysonromeiro/GestaoEventos target="_blank"">Veja no GitHub!</a>
                 </small>
             </div>
         </div>
@@ -411,7 +411,8 @@
                             <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                             <a class="btn btn-primary btn-lg rounded-pill" href="/cruds">
                                 <i class="fa fa-address-card"></i>
-                            Inscrever-se</a>
+                                Inscrever-se
+                            </a>
                         </div>
                     </div>
                 </div>
