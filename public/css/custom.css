@@ -142,6 +142,21 @@ div.alinha{
   content: "";
 }
 
+@media (min-width: 992px){
+    #mainNav .navbar-nav>li.nav-item>a.nav-link.active {
+        color: #fff;
+        background: #2c3e50;
+    }
+
+    #mainNav .navbar-nav li.nav-item a.nav-link.active {
+        color: #2c3e50;
+    }
+
+    #mainNav .navbar-nav>li.nav-item>a.nav-link.active:active, #mainNav .navbar-nav>li.nav-item>a.nav-link.active:focus, #mainNav .navbar-nav>li.nav-item>a.nav-link.active:hover {
+    color: #fff;
+    background: #2c3e50;
+    }
+}
 
 #mainNav .navbar-nav li.nav-item a.nav-link {
     color: #fff
