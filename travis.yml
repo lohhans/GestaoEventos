@@ -1,0 +1,22 @@
+language: php
+
+php:
+   - 7.2
+
+services:
+   - pgsql
+
+before_script:
+   - pgsql -e 'CREATE DATABASE travis_teste;'
+   - cp .env.travis .env
+   - composer self-update
+   - composer install --no-interaction
+   - php artisan key:generate
+   - php artisan migrate
+
+script:
+   - vendor/bin/phpunit
+
+notifications:
+   email:
+       - gabrielleporto19@gmail.com 
