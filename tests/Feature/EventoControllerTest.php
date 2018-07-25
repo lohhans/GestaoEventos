@@ -22,7 +22,7 @@ class EventoControllerTest extends TestCase{
                               'descricao' => 'CP',
                               'dataInicio' => '26/07/2019',
                               'dataFim' => '28/07/2019',
-                              'dataPagamento' => '24/07/2019',
+                              'dataPagamento' => '25/07/2019',
                               'area_id'=> 1]);
 
         $funcionarioMock = \Mockery::mock('App\Evento');
