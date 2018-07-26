@@ -146,3 +146,19 @@ Route::get('/listar/atividades', "AtividadeController@listarAtividades");
 //Inscricao
 
 Route::get('/listar/inscricoes', "InscricaoController@listarInscricoes");
+
+//email
+
+//Route::get('sendbasicemail','MailController@basic_email');
+Route::get('sendhtmlemail','MailController@html_email');
+Route::get('sendattachmentemail','MailController@attachment_email');
+Route::get('sendattachmentemail','MailController@attachment_email');
+Route::get('sendbasicemail', 'MailController@testeBoleto2');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('index');
