@@ -21,5 +21,6 @@ $factory->define(App\Usuario::class, function (Faker $faker) {
         'login' => $faker->userName,
         'senha' => $faker->password,
         'tipousuario_id' => 1,
+        'password' => 1,
     ];
 });
