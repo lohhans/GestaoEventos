@@ -1,7 +1,7 @@
 <?php
 //Tela Inicial
 Route::get('/', function () {
-    return view('index');
+    return view('pages/index');
 });
 
 //Usuario
@@ -9,14 +9,14 @@ Route::get('/', function () {
 Route::get('/listar/usuarios', "UsuarioController@listarUsuarios");
 
 Route::get('/cadastrar/usuario', function (Request $request){
-	return view('cadastrarUsuario');
+	return view('pages/cadastrarUsuario');
 
 });
 
 Route::post('/cadastrar/usuario', "UsuarioController@cadastrarUsuario");
 
 Route::get('/deletar/usuario', function (Request $request){
-	return view('deletarUsuario');
+	return view('pages/deletarUsuario');
 
 });
 
@@ -25,21 +25,21 @@ Route::post('/deletar/usuario', "UsuarioController@deletarUsuario");
 Route::post('/atualizar/usuario', "UsuarioController@atualizarUsuario");
 
 Route::get('/buscar/usuario', function (Request $request){
-	return view('buscarUsuario');
+	return view('pages/buscarUsuario');
 
 });
 
 Route::post('/buscar/usuario', "UsuarioController@buscarUsuarioCpf");
 
 Route::get('/usuario', function (Request $request){
-	return view('CRUDUsuario');
+	return view('pages/CRUDUsuario');
 
 });
 
 //Tela de CRUDS
 
 Route::get('/cruds', function (Request $request){
-	return view('CRUDs');
+	return view('pages/CRUDs');
 
 });
 
@@ -48,19 +48,19 @@ Route::get('/cruds', function (Request $request){
 Route::get('/listar/areas', "AreaController@listarAreas");
 
 Route::get('/cadastrar/area', function (Request $request) {
-			return view('cadastrarArea');
+			return view('pages/cadastrarArea');
 });
 
 Route::get('/remover/area', function(Request $request){
-				return view('removerArea');
+				return view('pages/removerArea');
 });
 
 Route::get('/atualizar/area', function(Request $request){
-				return view('atualizarArea');
+				return view('pages/atualizarArea');
 });
 
 Route::get('/login', function(Request $request){
-				return view('login');
+				return view('pages/login');
 });
 
 Route::post('/cadastrar/area', "AreaController@cadastrarArea");
@@ -72,7 +72,7 @@ Route::post('/atualizar/area', "AreaController@atualizarArea");
 Route::post('/login', "UsuarioController@login");
 
 Route::get('/area', function (){
-	return view('CRUDAreas');
+	return view('pages/CRUDAreas');
 });
 
 //Voucher
@@ -80,21 +80,21 @@ Route::get('/area', function (){
 Route::get('/listar/vouchers', "VoucherController@listarVouchers");
 
 Route::get('/cadastrar/voucher', function (Request $request){
-	return view('cadastrarVoucher');
+	return view('pages/cadastrarVoucher');
 
 });
 
 Route::post('/cadastrar/voucher', "VoucherController@cadastrarVoucher");
 
 Route::get('/deletar/voucher', function (Request $request){
-	return view('deletarVoucher');
+	return view('pages/deletarVoucher');
 
 });
 
 Route::post('/deletar/voucher', "VoucherController@deletarVoucher");
 
 Route::get('/buscar/voucher', function (Request $request){
-	return view('buscarVoucher');
+	return view('pages/buscarVoucher');
 
 });
 
@@ -103,7 +103,7 @@ Route::post('/buscar/voucher', "VoucherController@buscarVoucherDescricao");
 Route::post('/atualizar/voucher', "VoucherController@atualizarVoucher");
 
 Route::get('/voucher', function (Request $request){
-	return view('CRUDVoucher');
+	return view('pages/CRUDVoucher');
 
 });
 
@@ -112,21 +112,21 @@ Route::get('/voucher', function (Request $request){
 Route::get('/listar/eventos', "EventoController@listarEventos");
 
 Route::get('/cadastrar/evento', function (Request $request){
-	return view('cadastrarEvento');
+	return view('pages/cadastrarEvento');
 
 });
 
 Route::post('/cadastrar/evento', "EventoController@cadastrarEvento");
 
 Route::get('/deletar/evento', function (Request $request){
-	return view('deletarEvento');
+	return view('pages/deletarEvento');
 
 });
 
 Route::post('/deletar/evento', "EventoController@deletarEvento");
 
 Route::get('/buscar/evento', function (Request $request){
-	return view('buscarEvento');
+	return view('pages/buscarEvento');
 
 });
 
@@ -135,7 +135,7 @@ Route::post('/buscar/evento', "EventoController@buscarEventoDescricao");
 Route::post('/atualizar/evento', "EventoController@atualizarEvento");
 
 Route::get('/evento', function (Request $request){
-	return view('CRUDEvento');
+	return view('pages/CRUDEvento');
 
 });
 
