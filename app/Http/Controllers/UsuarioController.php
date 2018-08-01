@@ -18,7 +18,7 @@ class UsuarioController extends Controller
 
     public function listarUsuarios(){
 		$usuarios = \App\Usuario::all();
-		return view('listarUsuarios', ['usuarios' => $usuarios]);
+		return view('pages/listarUsuarios', ['usuarios' => $usuarios]);
     }
 
     public function cadastrarUsuario(Request $request){

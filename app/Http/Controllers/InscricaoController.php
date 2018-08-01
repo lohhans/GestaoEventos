@@ -8,7 +8,7 @@ class InscricaoController extends Controller{
 
     public function listarInscricoes(){
 		$inscricoes = \App\Inscricao::all();
-		return view('listarInscricoes', ['inscricoes' => $inscricoes]);
+		return view('pages/listarInscricoes', ['inscricoes' => $inscricoes]);
     }
 
 }

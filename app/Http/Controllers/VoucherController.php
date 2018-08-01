@@ -9,7 +9,7 @@ class VoucherController extends Controller
     public function listarVouchers()
     {
         $vouchers = \App\Voucher::all();
-        return view('listarVouchers', ['vouchers' => $vouchers]);
+        return view('pages/listarVouchers', ['vouchers' => $vouchers]);
     }
 
     public function cadastrarVoucher(Request $request)
