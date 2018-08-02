@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>Pensalight - Gestão de Eventos</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/logoRedondo.png">
 
     <!-- Fontes customizadas -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -21,12 +18,13 @@
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
 
     <!-- Estilos CSS customizados -->
-    <link href="css/freelancer.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <link href="css/w3.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/mdb.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/freelancer.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/w3.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/custom.css') }}">
 
 </head>
-
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">

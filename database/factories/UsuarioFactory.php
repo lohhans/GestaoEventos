@@ -19,8 +19,8 @@ $factory->define(App\Usuario::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'cpf' => $faker->cpf,
         'login' => $faker->userName,
-        'senha' => $faker->password,
         'tipousuario_id' => 1,
-        'password' => 1,
+        'password' => \Hash::make('1'),
+        'remember_token' => str_random(10),
     ];
 });
