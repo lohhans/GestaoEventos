@@ -19,7 +19,8 @@ class CreateUsuariosTable extends Migration
             $table->string('email');
             $table->string('cpf')->unique();
             $table->string('login')->unique();
-            $table->string('senha');
+            $table->string('password');
+            $table->rememberToken();
             $table->integer('tipousuario_id')->unsigned;
             $table->timestamps();
             $table->foreign('tipousuario_id')->references('id')->on('tipousuarios');
