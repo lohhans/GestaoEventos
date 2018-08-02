@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class UsuarioController extends Controller
 {
 	public function validarDados(Request $request){
-		if($request->nome === NULL OR $request->email === NULL OR $request->cpf === NULL OR $request->login === NULL OR $request->senha === NULL OR $request->tipousuario_id === NULL){
+		if($request->nome === NULL OR $request->email === NULL OR $request->cpf === NULL OR $request->login === NULL OR $request->password === NULL){
 			return true;
 		}
 		else{
@@ -18,7 +18,7 @@ class UsuarioController extends Controller
 
     public function listarUsuarios(){
 		$usuarios = \App\Usuario::all();
-		return view('listarUsuarios', ['usuarios' => $usuarios]);
+		return view('pages/listarUsuarios', ['usuarios' => $usuarios]);
     }
 
     public function cadastrarUsuario(Request $request){
@@ -32,10 +32,9 @@ class UsuarioController extends Controller
     		$usuario->email = $request->email;
     		$usuario->cpf = $request->cpf;
     		$usuario->login = $request->login;
-    		$usuario->senha = $request->senha;
-
-    		$tu = \App\Tipousuario::find($request->tipousuario_id);
-    		$usuario->tipousuario_id = $request->tipousuario_id;// $request->tipousuario_id;
+    		$usuario->password = \Hash::make($request->password);
+			$usuario->remember_token = str_random(10);
+    		$usuario->tipousuario_id = 1;// $request->tipousuario_id;
     		$usuario->save();
     		return redirect('/listar/usuarios');
 		}
