@@ -8,7 +8,7 @@ class AtividadeController extends Controller{
 
     public function listarAtividades(){
 		$atividades = \App\Atividade::all();
-		return view('listarAtividades', ['atividades' => $atividades]);
+		return view('pages/listarAtividades', ['atividades' => $atividades]);
     }
 
 }

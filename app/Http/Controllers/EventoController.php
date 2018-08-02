@@ -17,7 +17,7 @@ class EventoController extends Controller{
 
 	public function listarEventos(){
         $eventos = \App\Evento::all();
-        return view('listarEventos', ['eventos' => $eventos]);
+        return view('pages/listarEventos', ['eventos' => $eventos]);
   	}
 
   	public function cadastrarEvento(Request $request){
