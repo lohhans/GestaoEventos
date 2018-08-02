@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Usuario extends Authenticatable
 {
+    protected $fillable = ['nome', 'email', 'cpf', 'login', 'password', 'tipousuario_id'];
     protected $hidden = ['password', 'remember_token'];
 
 

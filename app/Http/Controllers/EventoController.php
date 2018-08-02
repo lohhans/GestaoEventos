@@ -50,8 +50,6 @@ class EventoController extends Controller{
         return redirect('/listar/eventos');
     }
 
-
-
     public function buscarEventoDescricao(Request $request){
         $eventos = \App\Evento::where('descricao', '=', $request->descricao)->get();
         if (sizeof($eventos) != 0) {
