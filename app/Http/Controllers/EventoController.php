@@ -21,9 +21,12 @@ class EventoController extends Controller{
   	}
 
   	public function cadastrarEvento(Request $request){
+		$dataPagamento = $request->dataInicio;
+		$dataPag = date('d/m/Y', strtotime($dataPagamento. ' - 5 days'));
 		try {
     		EventoValidator::validate($request->all());
     		$this->evento->fill($request->all());
+			$this->evento->dataPagamento = $dataPag;
     		$this->evento->save();
 			return redirect('/listar/eventos');
     	}catch(ValidationException $e) {
@@ -59,4 +62,9 @@ class EventoController extends Controller{
 			return redirect('/listar/eventos');
         }
     }
+
+	public function abrirCadastrarEvento(){
+		$areas = \App\Area::all();
+        return view('pages/cadastrarEvento', ['areas' => $areas]);
+	}
 }

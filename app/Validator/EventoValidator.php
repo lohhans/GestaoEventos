@@ -18,10 +18,6 @@ class EventoValidator{
     		$validator->errors()->add('dataInvalida',
     									'A data final nao pode ser inferior a data inicial');
         }
-        if($dataAtual > $dados['dataPagamento'] OR $dados['dataPagamento'] > $dados['dataInicio']){
-            $validator->errors()->add('dataInvalida',
-    									'Data Invalida');
-        }
         if(!$validator->errors()->isEmpty()){
             throw new ValidationException($validator, "Erro ao validar evento");
         }

@@ -8,6 +8,8 @@ Route::get('/', function () {
 
 Route::get('/listar/usuarios', "UsuarioController@listarUsuarios");
 
+
+
 Route::get('/cadastrar/usuario', function (Request $request){
 	return view('pages/cadastrarUsuario');
 
@@ -111,10 +113,7 @@ Route::get('/voucher', function (Request $request){
 
 Route::get('/listar/eventos', "EventoController@listarEventos");
 
-Route::get('/cadastrar/evento', function (Request $request){
-	return view('pages/cadastrarEvento');
-
-});
+Route::get('/cadastrar/evento', "EventoController@abrirCadastrarEvento");
 
 Route::post('/cadastrar/evento', "EventoController@cadastrarEvento");
 
