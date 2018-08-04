@@ -142,6 +142,13 @@ Route::get('/evento', function (Request $request){
 
 Route::get('/listar/atividades', "AtividadeController@listarAtividades");
 
+Route::get('/cadastrar/atividade', function (Request $request){
+	return view('pages/cadastrarAtividade');
+
+});
+
+Route::post('/cadastrar/atividade', "AtividadeController@cadastrarAtividade");
+
 //Inscricao
 
 Route::get('/listar/inscricoes', "InscricaoController@listarInscricoes");
