@@ -10,6 +10,18 @@ class Usuario extends Authenticatable
     protected $fillable = ['nome', 'email', 'cpf', 'login', 'password', 'tipousuario_id'];
     protected $hidden = ['password', 'remember_token'];
 
+    public static $rules = [
+		'nome' => 'required',
+		'email' => 'required',
+		'login' => 'required',
+		'password' => 'required',
+		'tipousuario_id' => 'required'
+	];
+
+	public static $messages = [
+		'required'=> 'O campo :attribute é obrigatório'
+	];
+
 
     public function tipousuario(){
 		return $this->belongsTo('App\Tipousuario');

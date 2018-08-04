@@ -3,45 +3,35 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use App\Usuario;
+use App\Validator\UsuarioValidator;
 use Illuminate\Http\Request;
 
-class UsuarioController extends Controller
-{
-	public function validarDados(Request $request){
-		if($request->nome === NULL OR $request->email === NULL OR $request->cpf === NULL OR $request->login === NULL OR $request->password === NULL){
-			return true;
-		}
-		else{
-			return false;
-		}
-   }
+class UsuarioController extends Controller{
+
+	protected $usuario;
+
+	public function __construct(Usuario $usuario) {
+		$this->usuario = $usuario;
+	}
+
 
     public function listarUsuarios(){
 		$usuarios = \App\Usuario::all();
 		return view('pages/listarUsuarios', ['usuarios' => $usuarios]);
     }
 
-    public function cadastrarUsuario(Request $request){
-		$usuarios = \App\Usuario::where('cpf', '=', $request->cpf)->orWhere('email', '=', $request->email)->orWhere('login', '=', $request->login)->get();
-		if($this->validarDados($request)){
-    		throw new Exception('Preencha todos os campos!');
+	public function cadastrarUsuario(Request $request){
+		try {
+    		UsuarioValidator::validate($request->all());
+    		$this->usuario->fill($request->all());
+    		$this->usuario->save();
+			return redirect('/listar/usuarios');
+    	}catch(ValidationException $e) {
+			View()->withErros($e->getValidator());
     	}
-		if(sizeof($usuarios) == 0){
-			$usuario = new \App\Usuario();
-    		$usuario->nome = $request->nome;
-    		$usuario->email = $request->email;
-    		$usuario->cpf = $request->cpf;
-    		$usuario->login = $request->login;
-    		$usuario->password = \Hash::make($request->password);
-			$usuario->remember_token = str_random(10);
-    		$usuario->tipousuario_id = 1;// $request->tipousuario_id;
-    		$usuario->save();
-    		return redirect('/listar/usuarios');
-		}
-		else{
-			throw new Exception('Usuario ja cadastrado!');
-		}
-    }
+	}
+
     public function deletarUsuario(Request $request){
 		$usuarios = \App\Usuario::where('cpf', '=', $request->cpf)->get();
 		foreach($usuarios as $usuario){
@@ -50,18 +40,16 @@ class UsuarioController extends Controller
 		return redirect('/listar/usuarios');
     }
 
-    public function atualizarUsuario(Request $request){
-		$usuario1 = \App\Usuario::find($request->id);
-		$usuario1->nome = $request->nome;
-		$usuario1->cpf = $request->cpf;
-		$usuario1->login = $request->login;
-		$usuario1->senha = $request->senha;
-		$usuario1->email = $request->email;
-		$usuario1->tipousuario_id = $request->tipousuario_id;
-		$usuario1->update();
-
-		return redirect('/listar/usuarios');
-    }
+	public function atualizarUsuario(Request $request){
+		try {
+    		UsuarioValidator::validate($request->all());
+    		$this->usuario->fill($request->all());
+    		$this->usuario->update();
+    		return redirect('/listar/usuario');
+    	}catch(ValidationException $e) {
+			View()->withErros($e->getValidator());
+    	}
+	}
 
     public function buscarUsuarioCpf(Request $request){
 		$usuarios = \App\Usuario::where('cpf', '=', $request->cpf)->get();
