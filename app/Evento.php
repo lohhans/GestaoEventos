@@ -6,13 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evento extends Model{
 
-	protected $fillable = ['localizacao', 'descricao', 'dataInicio', 'dataFim', 'dataPagamento', 'area_id'];
+	protected $fillable = ['localizacao', 'descricao', 'dataInicio', 'dataFim', 'area_id'];
 
 	public static $rules = [
 		'localizacao' => 'required',
 		'descricao' => 'required',
 		'dataInicio' => 'required',
-		'dataPagamento' => 'required',
 		'dataFim' => 'required',
 		'area_id' => 'required'
 	];

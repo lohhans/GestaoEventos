@@ -1,73 +1,86 @@
-<!doctype html>
-    <html lang="{{ app()->getLocale() }}">
-        <head>
-            <meta charset="utf-8">
-            <!-- Permite que o navegador saiba que o site é otimizado para mobiles -->
-            <meta name="viewport" content="width-device-width, initial-scale-1.0">
-            <!-- Titulo da aba da página -->
-            <title>Pensalight</title>
-            <!-- Importa a fonte de ícones do Google -->
-            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-            <!-- Importa o Materialize CSS -->
-            <link rel="stylesheet" href="css/materialize.css">
-        </head>
+@extends('layout.template')
 
-        <body>
+@section('content')
 
-            <nav>
-                <div class="nav-wrapper">
-                    <a href="#!" class="brand-logo resposive">Pensalight</a>
-                    <a href="" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+<script type="text/javascript" language="javascript">
+</script>
 
-                    <!-- Menu para Desktops -->
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="area">Área</a></li>
-                        <li><a href="evento">Evento</a></li>
-                        <li><a href="usuario">Usuário</a></li>
-                        <li><a href="voucher">Voucher</a></li>
-                    </ul>
+<section class="form-gradient mb5">
+    <!-- Basic dropdown -->
 
-                    <!-- Menu para dispositivos móveis -->
-                    <ul class="sidenav hide-on-large-only" id="slide-out">
-                        <li><a href="area">Área</a></li>
-                        <li><a href="evento">Evento</a></li>
-                        <li><a href="usuario">Usuário</a></li>
-                        <li><a href="voucher">Voucher</a></li>
-                    </ul>
+    <!-- Espaçamento entre a navbar e o conteudo -->
+    <div class="alinha"></div>
+    <div class="alinha"></div>
+    <div class="alinha"></div>
+    <div class="alinha"></div>
+    <div class="alinha"></div>
+    <div class="alinha"></div>
+    <div class="alinha"></div>
 
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Cadastro de Evento') }}</div>
+
+                    <div class="card-body">
+                        <form action="/cadastrar/evento" method="post">
+                            @csrf
+
+                            <div class="form-group row">
+                                <label for="localizacao" class="col-md-4 col-form-label text-md-right">{{ __('Localização') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="localizacao" type="text" class="form-control" name="localizacao" required autofocus>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="descricao" class="col-md-4 col-form-label text-md-right">{{ __('Descrição') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="descricao" type="text" class="form-control" name="descricao" required autofocus>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="dataInicio" class="col-md-4 col-form-label text-md-right">{{ __('Data Inicio') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="dataInicio" type="date" class="form-control" name="dataInicio" required autofocus>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="dataFim" class="col-md-4 col-form-label text-md-right">{{ __('Data Fim') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="dataFim" type="date" class="form-control" name="dataFim" required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="dataFim" class="col-md-4 col-form-label text-md-right">{{ __('Área') }}</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="exampleFormControlSelect1" name="area_id">
+                                        @foreach($areas as $area)
+                                            <option value="{{$area->id}}">{{$area->descricao}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Cadastrar') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </nav>
-
-            <h1>Cadastrar Evento</h1>
-
-            <form action="/cadastrar/evento" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
-                Localizacao: <input type="text" name="localizacao" ><br/>
-                Descricao: <input type="text" name="descricao" ><br/>
-                Data inicial: <input type="datetime" name="dataInicio" ><br/>
-                Data final: <input type="datetime" name="dataFim" ><br/>
-                Data de pagamento: <input type="datetime" name="dataPagamento" ><br/>
-                Codigo da area: <input type="text" name="area_id" ><br/>
-
-                <input  type="submit" value="cadastrar" />
-            </form>
-
-            <!-- Importa os arquivos Jquery e JS -->
-            <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-            <script type="text/javascript" src="js/materialize.min.js"></script>
-
-            <!-- Importa o Materialize JS -->
-            <script src="js/materialize.js"></script>
-
-            <!-- Configura o Jquery o Materialize JS -->
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $('.sidenav').sidenav();
-                });
-            </script>
-
-        </body>
-
-    </html>
-<!-- AINDA IMPLEMENTANDO, MAS O DEFAULT PRAS TELAS É ESSE! -->
+            </div>
+        </div>
+    </div>
+</section>
+@endsection
