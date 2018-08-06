@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evento extends Model{
 
-	protected $fillable = ['localizacao', 'descricao', 'dataInicio', 'dataFim', 'area_id'];
+	protected $fillable = ['localizacao', 'descricao', 'dataInicio', 'dataFim', 'area_id', 'endereco_id'];
 
 	public static $rules = [
 		'localizacao' => 'required',
@@ -22,6 +22,10 @@ class Evento extends Model{
 
 	public function area(){
 		return $this->belongsTo('App\Area');
+   	}
+
+	public function endereco(){
+		return $this->belongsTo('App\Endereco');
    	}
 
    	public function atividade(){

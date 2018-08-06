@@ -27,6 +27,10 @@ class Usuario extends Authenticatable
 		return $this->belongsTo('App\Tipousuario');
     }
 
+    public function endereco(){
+        return $this->belongsTo('App\Endereco');
+    }
+
     public function inscricao(){
  		return $this->hasMany('App\Inscricao');
     }

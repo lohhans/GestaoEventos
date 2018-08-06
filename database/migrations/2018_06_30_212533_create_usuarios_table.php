@@ -22,8 +22,10 @@ class CreateUsuariosTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->integer('tipousuario_id')->unsigned;
+            $table->integer('endereco_id')->unsigned;
             $table->timestamps();
             $table->foreign('tipousuario_id')->references('id')->on('tipousuarios');
+            $table->foreign('endereco_id')->references('id')->on('enderecos');
         });
     }
 
