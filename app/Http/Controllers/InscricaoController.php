@@ -25,7 +25,7 @@ class InscricaoController extends Controller{
     		InscricaoValidator::validate($request->all());
     		$this->inscricao->fill($request->all());
 			$this->inscricao->dataInscricao = $dataAtual;
-    		$this->evento->save();
+    		$this->inscricao->save();
 			return redirect('/listar/inscricoes');
     	}catch(ValidationException $e) {
 			View()->withErros($e->getValidator());
