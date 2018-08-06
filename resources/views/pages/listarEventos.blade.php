@@ -41,7 +41,12 @@
 						    <tr>
 						      <th scope="row"><?php echo $i ?></th>
 							  <td><?php echo $evento->id ?></td>
-							  <td><?php echo $evento->localizacao ?></td>
+							  <?php if ($evento->Endereco != null):?> <td><?php echo $evento->Endereco->rua ?></td>
+
+							  <?php else: ?> <td>Não possui localização</td>
+
+							  <?php endif; ?>
+
 							  <td><?php echo $evento->descricao ?></td>
 							  <td><?php echo $evento->dataInicio ?></td>
 							  <td><?php echo $evento->dataFim ?></td>

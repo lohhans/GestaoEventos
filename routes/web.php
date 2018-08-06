@@ -117,21 +117,15 @@ Route::get('/cadastrar/evento', "EventoController@abrirCadastrarEvento");
 
 Route::post('/cadastrar/evento', "EventoController@cadastrarEvento");
 
-Route::get('/deletar/evento', function (Request $request){
-	return view('pages/deletarEvento');
-
-});
+Route::post('/detalhamento/evento', "EventoController@abrirPaginaDetalhamentoEvento");
 
 Route::post('/deletar/evento', "EventoController@deletarEvento");
 
-Route::get('/buscar/evento', function (Request $request){
-	return view('pages/buscarEvento');
-
-});
+Route::get('/selecionar/evento', "EventoController@abrirPaginaSelecionarEvento");
 
 Route::post('/buscar/evento', "EventoController@buscarEventoDescricao");
 
-Route::post('/atualizar/evento', "EventoController@atualizarEvento");
+    Route::post('/atualizar/evento', "EventoController@atualizarEvento");
 
 Route::get('/evento', function (Request $request){
 	return view('pages/CRUDEvento');
@@ -153,6 +147,7 @@ Route::post('/cadastrar/atividade', "AtividadeController@cadastrarAtividade");
 
 Route::get('/listar/inscricoes', "InscricaoController@listarInscricoes");
 
+Route::get('/realizarinscricao', "InscricaoController@abrirPaginaInscricao");
 //email
 
 //Route::get('sendbasicemail','MailController@basic_email');

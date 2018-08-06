@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Endereco extends Model{
 
-    protected $fillable = ['numero', 'rua', 'bairro', 'cidade', 'estado', 'pais', 'complemento'];
+    protected $fillable = ['cep', 'numero', 'rua', 'bairro', 'cidade', 'estado', 'pais', 'complemento'];
 
 	public static $rules = [
 		'numero' => 'required',
@@ -26,7 +26,7 @@ class Endereco extends Model{
     }
 
     public function evento(){
-		return $this->hasMany('App\Evento');   
+		return $this->hasMany('App\Evento');
    }
 
 }
