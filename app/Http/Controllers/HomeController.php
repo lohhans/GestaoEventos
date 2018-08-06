@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use \App\Evento;
+use DateTime;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $hoje = new DateTime("now");
+        $eventos = Evento::where('dataFimInscricoes', '<', $hoje)->orderBy('dataInicio')->get();
+        return view('home',  ['eventos' => $eventos]);
     }
 }

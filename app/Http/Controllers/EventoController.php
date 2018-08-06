@@ -24,9 +24,14 @@ class EventoController extends Controller{
 		$dataPagamento = $request->dataInicio;
 		$dataPag = date('d/m/Y', strtotime($dataPagamento. ' - 5 days'));
 		try {
+			\App\Validator\EnderecoValidator::validate($request->all());
+			$endereco = new \App\Endereco;
+			$endereco = $endereco->fill($request->all());
+			$endereco->save();
     		EventoValidator::validate($request->all());
     		$this->evento->fill($request->all());
 			$this->evento->dataPagamento = $dataPag;
+			$this->evento->endereco_id = $endereco->id;
     		$this->evento->save();
 			return redirect('/listar/eventos');
     	}catch(ValidationException $e) {
@@ -35,10 +40,14 @@ class EventoController extends Controller{
 	}
 
 	public function atualizarEvento(Request $request){
+		$dataPagamento = $request->dataInicio;
+		$dataPag = date('d/m/Y', strtotime($dataPagamento. ' - 5 days'));
 		try {
-    		EventoValidator::validate($request->all());
-    		$this->evento->fill($request->all());
-    		$this->evento->update();
+			EventoValidator::validate($request->all());
+			$eventoBanco = \App\Evento::find($request->id);
+			$eventoBanco->fill($request->all());
+			$eventoBanco->dataPagamento = $dataPag;
+    		$eventoBanco->update();
     		return redirect('/listar/eventos');
     	}catch(ValidationException $e) {
 			View()->withErros($e->getValidator());
@@ -46,11 +55,25 @@ class EventoController extends Controller{
 	}
 
     public function deletarEvento(Request $request){
-        $eventos = \App\Evento::where('descricao', '=', $request->descricao)->get();
-        foreach ($eventos as $evento) {
-            $evento->delete();
-        }
-        return redirect('/listar/eventos');
+		//var_dump($request->evento_id);
+		//return "";
+
+		$evento = \App\Evento::find($request->evento_id);
+		//$evento->detach();
+
+		$inscricoes = \App\Inscricao::where('evento_id', '=', $request->evento_id);
+		foreach ($inscricoes as $inscricao) {
+			$inscricao->delete();
+		}
+		$atividades = \App\Atividade::where('evento_id', '=', $request->evento_id);
+		foreach ($atividades as $atividade) {
+			$atividade->delete();
+		}
+
+		//	$evento->destroy($request->id);
+			$evento->delete();
+
+		return redirect('/listar/eventos');
     }
 
     public function buscarEventoDescricao(Request $request){
@@ -62,6 +85,23 @@ class EventoController extends Controller{
 			return redirect('/listar/eventos');
         }
     }
+
+	public function abrirPaginaSelecionarEvento(Request $request){
+        $eventos = \App\Evento::all();
+
+            return view('pages/seusEventosSelecionarEvento', ['eventos' => $eventos]);
+
+    }
+
+	public function abrirPaginaDetalhamentoEvento(Request $request){
+        $evento = \App\Evento::find($request->evento_id);
+		$qtdIncricoes = \App\Inscricao::where('evento_id',  '=', $request->evento_id)->count();
+		$areas = \App\Area::all();
+        return view('pages/seusEventosDetalhamentoEvento', ['areas' => $areas, 'evento' => $evento,
+															'qtdIncricoes' => $qtdIncricoes]);
+    }
+
+
 
 	public function abrirCadastrarEvento(){
 		$areas = \App\Area::all();
