@@ -9,7 +9,6 @@
 
         @else
             <a class="nav-link text-white" href="/home">{{ __('Home') }}</a>
-            <a class="nav-link text-white" href="/cadastrar/evento">{{ __('Crie seu evento') }}</a>
             <a class="nav-link text-white" href="/selecionar/evento">{{ __('Seus Eventos') }}</a>
             <a class="nav-link text-white" href="/selecionar/evento">{{ __('Suas Participações') }}</a>
 
