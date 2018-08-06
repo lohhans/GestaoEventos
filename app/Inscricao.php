@@ -6,6 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inscricao extends Model{
 
+    protected $fillable = ['valor', 'usuario_id', 'evento_id', 'voucher_id'];
+
+	public static $rules = [
+		'valor' => 'required',
+		'dataInscricao' => 'required',
+		'usuario_id' => 'required',
+		'evento_id' => 'required'
+	];
+
+	public static $messages = [
+		'required'=> 'O campo :attribute é obrigatório'
+	];
+
     public function usuario(){
 		return $this->belongsTo('App\Usuario');
     }
