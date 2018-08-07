@@ -38,4 +38,8 @@ class Usuario extends Authenticatable
     public function eventos(){
 		return $this->belongsToMany('App\Evento');
   	}
+
+    public function atividades(){
+		return $this->belongsToMany('App\Atividade');
+  	}
 }

@@ -21,4 +21,8 @@ class Atividade extends Model{
     public function evento(){
 		return $this->belongsTo('App\Evento');
    }
+
+   public function usuarios(){
+       return $this->belongsToMany('App\Usuario');
+   }
 }
