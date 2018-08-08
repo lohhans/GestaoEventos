@@ -24,6 +24,7 @@ class CreateEventosTable extends Migration
             $table->dateTime('dataFimInscricoes');
             $table->integer('area_id')->unsigned;
             $table->integer('endereco_id')->nullable()->unsigned;
+            $table->softDeletes();
             $table->timestamps();
             $table->foreign('area_id')->references('id')->on('areas');
             $table->foreign('endereco_id')->references('id')->on('enderecos');

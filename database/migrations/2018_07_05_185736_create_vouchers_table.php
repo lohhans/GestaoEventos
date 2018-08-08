@@ -18,6 +18,7 @@ class CreateVouchersTable extends Migration
             $table->string('descricao');
             $table->integer("limite");
             $table->float("percentual");
+            $table->string("codigoIdentificador");
             $table->timestamps();
         });
     }
