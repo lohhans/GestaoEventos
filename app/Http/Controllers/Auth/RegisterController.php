@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Endereco;
+use App\Validator\EnderecoValidator;
 
 class RegisterController extends Controller
 {
@@ -63,13 +65,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        EnderecoValidator::validate($data);
+        $endereco = new Endereco;
+        $endereco->fill($data);
+        $endereco->save();
         return Usuario::create([
             'nome' => $data['name'],
             'email' => $data['email'],
             'cpf' => $data['cpf'],
             'login' => $data['login'],
             'password' => Hash::make($data['password']),
-            'tipousuario_id' => 1,
+            'tipousuario_id' => $data['tipousuario_id'],
+            'endereco_id' => $endereco->id,
         ]);
     }
 }

@@ -72,6 +72,64 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="labelCep" class="col-md-4 col-form-label text-md-right">{{ __('CEP') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="cep" type="text" class="form-control" name="cep" required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="labelNumero" class="col-md-4 col-form-label text-md-right">{{ __('Numero') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="numero" type="text" class="form-control" name="numero" required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="labelrua" class="col-md-4 col-form-label text-md-right">{{ __('Rua') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="rua" type="text" class="form-control" name="rua" required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="labelBairro" class="col-md-4 col-form-label text-md-right">{{ __('Bairro') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="bairro" type="text" class="form-control" name="bairro" required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="labelCidade" class="col-md-4 col-form-label text-md-right">{{ __('Cidade') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="cidade" type="text" class="form-control" name="cidade" required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="labelEstado" class="col-md-4 col-form-label text-md-right">{{ __('Estado') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="estado" type="text" class="form-control" name="estado" required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="labelPais" class="col-md-4 col-form-label text-md-right">{{ __('País') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="pais" type="text" class="form-control" name="pais" required autofocus>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="labelComplemento" class="col-md-4 col-form-label text-md-right">{{ __('Complemento') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="complemento" type="text" class="form-control" name="complemento" required autofocus>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                                 <div class="col-md-6">
@@ -92,6 +150,9 @@
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                 </div>
                             </div>
+                            <input id="tipousuario_id" name="tipousuario_id" value="3" type="hidden" class="form-control{{ $errors->has('tipousuario_id') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+
+
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">

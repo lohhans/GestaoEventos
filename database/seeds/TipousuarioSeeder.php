@@ -11,8 +11,9 @@ class TipousuarioSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i < 5; $i++){
-				DB::table('tipousuarios')->insert(['descricao' => 'gerente'. $i]);        
-        }
+        DB::table('tipousuarios')->insert(['descricao' => 'Administrador']);
+        DB::table('tipousuarios')->insert(['descricao' => 'Organizador e Participante']);
+        DB::table('tipousuarios')->insert(['descricao' => 'Participante']);
+
     }
 }

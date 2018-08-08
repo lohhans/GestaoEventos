@@ -4,11 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class Usuario extends Authenticatable
 {
-    protected $fillable = ['nome', 'email', 'cpf', 'login', 'password', 'tipousuario_id'];
+    use Notifiable;
+    protected $fillable = ['nome', 'email', 'cpf', 'login', 'password', 'tipousuario_id', 'endereco_id'];
     protected $hidden = ['password', 'remember_token'];
+
 
     public static $rules = [
 		'nome' => 'required',

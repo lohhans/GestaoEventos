@@ -12,7 +12,7 @@ class VoucherSeeder extends Seeder
     public function run()
     {
         for($i = 0; $i < 10; $i++){
-				DB::table('vouchers')->insert(['descricao' => 'lohhans'. $i, 'limite' => ''.$i, 'percentual' => ''.$i]);
+				DB::table('vouchers')->insert(['descricao' => 'voucher'. $i, 'limite' => $i, 'percentual' => $i, 'codigoIdentificador' => str_random(10)]);
         }
     }
 }

@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Usuario;
+use App\Endereco;
 use App\Validator\UsuarioValidator;
+use App\Validator\EnderecoValidator;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller{
 
 	protected $usuario;
+	protected $endereco;
 
-	public function __construct(Usuario $usuario) {
+	public function __construct(Usuario $usuario, Endereco $endereco) {
 		$this->usuario = $usuario;
+		$this->endereco = $endereco;
 	}
 
 
@@ -23,8 +27,12 @@ class UsuarioController extends Controller{
 
 	public function cadastrarUsuario(Request $request){
 		try {
+			EnderecoValidator::validate($request->all());
+			$this->endereco->fill($request->all());
+			$this->endereco->save();
     		UsuarioValidator::validate($request->all());
     		$this->usuario->fill($request->all());
+			$this->usuario->endereco_id = $this->endereco->id;
     		$this->usuario->save();
 			return redirect('/listar/usuarios');
     	}catch(ValidationException $e) {
