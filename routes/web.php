@@ -148,6 +148,8 @@ Route::post('/cadastrar/atividade', "AtividadeController@cadastrarAtividade");
 Route::get('/listar/inscricoes', "InscricaoController@listarInscricoes");
 
 Route::get('/realizarinscricao', "InscricaoController@abrirPaginaInscricao");
+
+Route::post('/realizarinscricao', "InscricaoController@concluirInscricao");
 //email
 
 //Route::get('sendbasicemail','MailController@basic_email');

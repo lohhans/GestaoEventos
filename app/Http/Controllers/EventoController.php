@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Evento;
+use App\Endereco;
 use App\Validator\EventoValidator;
+use App\Validator\EnderecoValidator;
 use Illuminate\Http\Request;
 
 class EventoController extends Controller{
 
 	protected $evento;
+	protected $endereco;
 
-	public function __construct(Evento $evento) {
+	public function __construct(Evento $evento, Endereco $endereco) {
 		$this->evento = $evento;
+		$this->endereco = $endereco;
 	}
 
 	public function listarEventos(){
@@ -24,14 +28,13 @@ class EventoController extends Controller{
 		$dataPagamento = $request->dataInicio;
 		$dataPag = date('d/m/Y', strtotime($dataPagamento. ' - 5 days'));
 		try {
-			\App\Validator\EnderecoValidator::validate($request->all());
-			$endereco = new \App\Endereco;
-			$endereco = $endereco->fill($request->all());
-			$endereco->save();
-    		EventoValidator::validate($request->all());
+			EnderecoValidator::validate($request->all());
+			$this->endereco->fill($request->all());
+			$this->endereco->save();
+			EventoValidator::validate($request->all());
     		$this->evento->fill($request->all());
 			$this->evento->dataPagamento = $dataPag;
-			$this->evento->endereco_id = $endereco->id;
+			$this->evento->endereco_id = $this->endereco->id;
     		$this->evento->save();
 			return redirect('/listar/eventos');
     	}catch(ValidationException $e) {
@@ -59,9 +62,9 @@ class EventoController extends Controller{
 		//return "";
 
 		$evento = \App\Evento::find($request->evento_id);
-		//$evento->detach();
+		$evento->delete();
 
-		$inscricoes = \App\Inscricao::where('evento_id', '=', $request->evento_id);
+		/*$inscricoes = \App\Inscricao::where('evento_id', '=', $request->evento_id);
 		foreach ($inscricoes as $inscricao) {
 			$inscricao->delete();
 		}
@@ -72,8 +75,8 @@ class EventoController extends Controller{
 
 		//	$evento->destroy($request->id);
 			$evento->delete();
-
-		return redirect('/listar/eventos');
+			*/
+		return redirect('/home');
     }
 
     public function buscarEventoDescricao(Request $request){

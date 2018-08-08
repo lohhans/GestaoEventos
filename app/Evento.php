@@ -3,12 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Evento extends Model{
 
-
+	use SoftDeletes;
 	protected $fillable = ['localizacao', 'descricao', 'resumoEvento', 'dataInicio', 'dataFim', 'dataFimInscricoes', 'area_id', 'endereco_id'];
-
+	protected $dates = ['deleted_at'];
 
 	public static $rules = [
 		'descricao' => 'required',

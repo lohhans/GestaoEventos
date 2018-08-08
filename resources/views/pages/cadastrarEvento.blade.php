@@ -61,6 +61,7 @@
                                 <label for="dataFim" class="col-md-4 col-form-label text-md-right">{{ __('Área') }}</label>
                                 <div class="col-md-6">
                                     <select class="form-control" id="exampleFormControlSelect1" name="area_id">
+                                        <option value="">Selecione uma área</option>
                                         @foreach($areas as $area)
                                             <option value="{{$area->id}}">{{$area->descricao}}</option>
                                         @endforeach

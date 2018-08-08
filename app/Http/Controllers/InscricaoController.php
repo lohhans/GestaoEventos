@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Inscricao;
+use DateTime;
+use \App\Evento;
+use \App\Atividade;
 use App\Validator\InscricaoValidator;
 use Illuminate\Http\Request;
+use App\Http\Controllers\DB;
+use \App\Usuario;
 
 class InscricaoController extends Controller{
 
@@ -31,5 +36,34 @@ class InscricaoController extends Controller{
 			View()->withErros($e->getValidator());
     	}
 	}
+
+    public function concluirInscricao(Request $request){
+        $dataAtual = date('d/m/y');
+		try {
+    		//InscricaoValidator::validate($request->all());
+    		//$this->inscricao->fill($request->all());
+			//$this->inscricao->dataInscricao = $dataAtual;
+            //var_dump($request->atividade_id);
+            //return "";
+            $usuario = Usuario::find($request->usuario_id);
+            foreach ($request->atividade_id as $atividade){
+                \DB::table('usuario_atividade')->insert(['usuario_id' => $usuario->id, 'atividade_id' => $atividade]);
+            }
+    		//$this->inscricao->save();
+			return redirect('/listar/inscricoes');
+    	}catch(ValidationException $e) {
+			View()->withErros($e->getValidator());
+    	}
+	}
+
+    public function abrirPaginaInscricao(Request $request){
+        $hoje = new DateTime("now");
+        $eventoSelecionado = Evento::find($request->evento_id);
+        $atividades =Atividade::where('evento_id', '=', $request->evento_id)->get();
+        $eventos = Evento::where('dataFimInscricoes', '<', $hoje)->orderBy('dataInicio')->get();
+        $vouchers = \DB::table('evento_voucher')->join('vouchers', 'vouchers.id', '=', 'voucher_id')->where('evento_id', '=',  $request->evento_id)->get();
+        return view('pages/inscricao', ['eventos' => $eventos, 'eventoSelecionado' => $eventoSelecionado, 'atividades' => $atividades, 'vouchers' => $vouchers]);
+
+    }
 
 }

@@ -26,7 +26,7 @@
 						      <th scope="col">Login</th>
 						      <th scope="col">Email</th>
 						      <th scope="col">CPF</th>
-						      <th scope="col">Tipo Usuário</th>
+						      <th scope="col">Cidade</th>
 
 
 						    </tr>
@@ -43,8 +43,10 @@
 							  <td><?php echo $usuario->login ?></td>
 							  <td><?php echo $usuario->email ?></td>
 							  <td><?php echo $usuario->cpf ?></td>
-							  <td><?php echo $usuario->tipousuario->descricao ?></td>
+							  <?php if ($usuario->Endereco != null):?> <td><?php echo $usuario->Endereco->cidade ?></td>
 
+							  <?php else: ?> <td>Não possui cidade</td>
+					   		  <?php endif; ?>	
 						    </tr>
 							<?php
 							}

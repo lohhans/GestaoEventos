@@ -24,7 +24,7 @@
                 @endif
 
 
-                <ul class="list-group" style="min-height: 400px; max-height: 400px; margin-bottom: 10px; overflow:scroll;
+                <ul class="list-group" style="min-height: 600px; max-height: 600px; margin-bottom: 10px; overflow:scroll;
                                                     -webkit-overflow-scrolling: touch;">
                         <li>
                         <div class="card text-center ">
@@ -88,8 +88,6 @@
           zoom: 12
         });
         var infoWindow = new google.maps.InfoWindow;
-
-          // Change this depending on the name of your PHP or XML file
           downloadUrl('https://storage.googleapis.com/mapsdevsite/json/mapmarkers2.xml', function(data) {
             var xml = data.responseXML;
             var markers = xml.documentElement.getElementsByTagName('marker');

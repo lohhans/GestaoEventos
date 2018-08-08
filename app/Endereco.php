@@ -9,7 +9,8 @@ class Endereco extends Model{
     protected $fillable = ['cep', 'numero', 'rua', 'bairro', 'cidade', 'estado', 'pais', 'complemento'];
 
 	public static $rules = [
-		'numero' => 'required',
+        'cep' => 'required',
+        'numero' => 'required',
 		'rua' => 'required',
 		'bairro' => 'required',
 		'cidade' => 'required',
