@@ -51,7 +51,7 @@ class EventoController extends Controller{
 			$eventoBanco->fill($request->all());
 			$eventoBanco->dataPagamento = $dataPag;
     		$eventoBanco->update();
-    		return redirect('/listar/eventos');
+    		return redirect('/home');
     	}catch(ValidationException $e) {
 			View()->withErros($e->getValidator());
     	}
@@ -97,12 +97,21 @@ class EventoController extends Controller{
     }
 
 	public function abrirPaginaDetalhamentoEvento(Request $request){
-        $evento = \App\Evento::find($request->evento_id);
+		$atividades = \App\Atividade::where('evento_id', '=', $request->evento_id)->get();
+		$evento = \App\Evento::find($request->evento_id);
 		$qtdIncricoes = \App\Inscricao::where('evento_id',  '=', $request->evento_id)->count();
 		$areas = \App\Area::all();
-        return view('pages/seusEventosDetalhamentoEvento', ['areas' => $areas, 'evento' => $evento,
-															'qtdIncricoes' => $qtdIncricoes]);
+		$vouchers = \DB::table('evento_voucher')->join('vouchers', 'vouchers.id', '=', 'voucher_id')->where('evento_id', '=',  $request->evento_id)->get();
+		return view('pages/seusEventosDetalhamentoEvento', ['areas' => $areas, 'evento' => $evento,
+															'qtdIncricoes' => $qtdIncricoes,
+															'atividades' => $atividades,
+															'vouchers' => $vouchers]);
     }
+
+	public function abrirPaginaSuasParticipacoes(Request $request){
+		$evento = \App\Inscricao::join('eventos', 'eventos.id', '=', 'evento_id')->where('usuario_id',  '=', $request->usuario_id)->get();
+		return view('pages/suasParticipacoes', ['eventos' => $evento]);
+	}
 
 
 

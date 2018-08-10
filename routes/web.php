@@ -81,10 +81,7 @@ Route::get('/area', function (){
 
 Route::get('/listar/vouchers', "VoucherController@listarVouchers");
 
-Route::get('/cadastrar/voucher', function (Request $request){
-	return view('pages/cadastrarVoucher');
-
-});
+Route::post('/evento/cadastroVoucher', "VoucherController@abrirPaginaCadastroVoucher");
 
 Route::post('/cadastrar/voucher', "VoucherController@cadastrarVoucher");
 
@@ -125,21 +122,20 @@ Route::get('/selecionar/evento', "EventoController@abrirPaginaSelecionarEvento")
 
 Route::post('/buscar/evento', "EventoController@buscarEventoDescricao");
 
-    Route::post('/atualizar/evento', "EventoController@atualizarEvento");
+Route::post('/atualizar/evento', "EventoController@atualizarEvento");
 
 Route::get('/evento', function (Request $request){
 	return view('pages/CRUDEvento');
 
 });
 
+Route::post('/home/suasparticipacoes', "EventoController@abrirPaginaSuasParticipacoes");
+
 //Atividade
 
-Route::get('/listar/atividades', "AtividadeController@listarAtividades");
+Route::post('/listar/atividades', "AtividadeController@listarAtividades");
 
-Route::get('/cadastrar/atividade', function (Request $request){
-	return view('pages/cadastrarAtividade');
-
-});
+Route::post('/evento/cadastroAtividade', "AtividadeController@abrirPaginaCadastrarAtividade");
 
 Route::post('/cadastrar/atividade', "AtividadeController@cadastrarAtividade");
 
@@ -150,6 +146,9 @@ Route::get('/listar/inscricoes', "InscricaoController@listarInscricoes");
 Route::get('/realizarinscricao', "InscricaoController@abrirPaginaInscricao");
 
 Route::post('/realizarinscricao', "InscricaoController@concluirInscricao");
+
+Route::post('/evento/inscricoes', "InscricaoController@abrirPaginaInscricoesEvento");
+
 //email
 
 //Route::get('sendbasicemail','MailController@basic_email');

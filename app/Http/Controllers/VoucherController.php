@@ -20,13 +20,22 @@ class VoucherController extends Controller{
         $vouchers = \App\Voucher::all();
         return view('pages/listarVouchers', ['vouchers' => $vouchers]);
     }
-    
+
     public function cadastrarVoucher(Request $request){
 		try {
     		VoucherValidator::validate($request->all());
     		$this->voucher->fill($request->all());
     		$this->voucher->save();
-			return redirect('/listar/vouchers');
+            \DB::table('evento_voucher')->insert(['evento_id' => $request->evento_id, 'voucher_id' => $this->voucher->id]);
+            $atividades = \App\Atividade::where('evento_id', '=', $request->evento_id)->get();
+    		$evento = \App\Evento::find($request->evento_id);
+    		$qtdIncricoes = \App\Inscricao::where('evento_id',  '=', $request->evento_id)->count();
+    		$areas = \App\Area::all();
+    		$vouchers = \DB::table('evento_voucher')->join('vouchers', 'vouchers.id', '=', 'voucher_id')->where('evento_id', '=',  $request->evento_id)->get();
+    		return view('pages/seusEventosDetalhamentoEvento', ['areas' => $areas, 'evento' => $evento,
+    															'qtdIncricoes' => $qtdIncricoes,
+    															'atividades' => $atividades,
+    															'vouchers' => $vouchers]);
     	}catch(ValidationException $e) {
 			View()->withErros($e->getValidator());
     	}
@@ -58,7 +67,13 @@ class VoucherController extends Controller{
         if (sizeof($vouchers) != 0) {
             return view('mostrarVoucher', ['vouchers' => $vouchers]);
         } else {
-            return "<script>alert('Voucher não encontrado'); location= '/buscar/voucher';</script>";
+            return new Exception('Voucher não encontrado');
         }
+    }
+
+    public function abrirPaginaCadastroVoucher(Request $request){
+        $evento = \App\Evento::find($request->evento_id);
+        return view ('pages/cadastrarVoucher', ['evento' => $evento]);
+
     }
 }
