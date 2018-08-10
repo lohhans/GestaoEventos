@@ -14,14 +14,18 @@ class Evento extends Model{
 	public static $rules = [
 		'descricao' => 'required',
 		'resumoEvento' => 'max:1000',
-		'dataInicio' => 'required',
-		'dataFim' => 'required',
-		'dataFimInscricoes' => 'required',
+		'dataInicio' => 'required|after:today',
+		'dataFim' => 'required|after: dataInicio',
+		'dataFimInscricoes' => 'required|before: dataInicio',
 		'area_id' => 'required'
 	];
 
 	public static $messages = [
-		'required'=> 'O campo :attribute é obrigatório'
+		'required'=> 'O campo :attribute é obrigatório',
+		'dataInicio.after' => 'A data de inicio nao pode ser anterior ao dia atual!',
+		'dataFim.after' => 'A data final nao pode ser anterior ao dia atual!',
+		'dataFimInscricoes' => 'A data de conclusao das inscricoes nao pode ser apos o inicio do evento',
+		'resumoEvento.max' => 'O resumo do evento nao pode ter mais que 1000 caracteres'
 	];
 
 	public function area(){
