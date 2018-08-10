@@ -15,6 +15,14 @@ Route::get('/cadastrar/usuario', function (Request $request){
 
 });
 
+Route::get('/paypalView', function (Request $request){
+	return view('pages/paypal');
+})->name('paypalView');
+
+Route::get('paypal', "PaypalController@payWithpaypal")->name('paypal');
+
+Route::get('status', "PaypalController@getPaymentStatus")->name('status');
+
 Route::post('/cadastrar/usuario', "UsuarioController@cadastrarUsuario");
 
 Route::get('/deletar/usuario', function (Request $request){

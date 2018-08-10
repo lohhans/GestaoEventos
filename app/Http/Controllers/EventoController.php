@@ -38,7 +38,7 @@ class EventoController extends Controller{
     		$this->evento->save();
 			return redirect('/listar/eventos');
     	}catch(ValidationException $e) {
-			View()->withErros($e->getValidator());
+			return back()->withErros($e->getValidator())->withInput();
     	}
 	}
 
