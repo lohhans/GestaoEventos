@@ -15,10 +15,20 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Atividade
                     </a>
+
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/cadastrar/atividade">Adicionar</a>
+                        <form action="/evento/cadastroAtividade" method="post" id="formCadastrarAtividade">
+                            @csrf
+                            <input class="form-control" type="hidden" value="{{$evento->id}}" name="evento_id">
+                            <a class="dropdown-item" onclick="document.getElementById('formCadastrarAtividade').submit()">Cadastrar</a>
+                        </form>
                         <a class="dropdown-item" href="#">Alterar</a>
-                        <a class="dropdown-item" href="#">Consultar</a>
+                        <!-- <form action="/listar/atividades" method="post" id="formListarAtividade"> -->
+                            <!-- @csrf -->
+                            <!-- <input class="form-control" type="hidden" value="{{$evento->id}}" name="evento_id"> -->
+                            <!-- <a class="dropdown-item" onclick="document.getElementById('formListarAtividade').submit()">Consultar</a> -->
+                        <!-- </form> -->
+
                     </div>
                 </li>
                 <li class="nav-item dropdown text-white">
@@ -26,9 +36,13 @@
                         Vouchers
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Adicionar</a>
+                        <form action="/evento/cadastroVoucher" method="post" id="formCadastrarVoucher">
+                            @csrf
+                            <input class="form-control" type="hidden" value="{{$evento->id}}" name="evento_id">
+                            <a class="dropdown-item" onclick="document.getElementById('formCadastrarVoucher').submit()">Cadastrar</a>
+                        </form>
                         <a class="dropdown-item" href="#">Alterar</a>
-                        <a class="dropdown-item" href="#">Consultar</a>
+                        <!-- <a class="dropdown-item" href="#">Consultar</a> -->
                     </div>
                 </li>
                 <li class="nav-item dropdown text-white">
@@ -36,8 +50,13 @@
                         Inscrições
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Inscritos</a>
-                        <a class="dropdown-item" href="#">Pendentes</a>
+                        <form action="/evento/inscricoes" method="post" id="formInscricoes">
+                            @csrf
+                            <input class="form-control" type="hidden" value="{{$evento->id}}" name="evento_id">
+                            <input class="form-control" type="hidden" value="{{Auth::user()->id}}" name="usuario_id">
+                            <a class="dropdown-item" onclick="document.getElementById('formInscricoes').submit()">Inscritos</a>
+                        </form>
+                        <!-- <a class="dropdown-item" href="#">Pendentes</a> -->
                     </div>
                 </li>
             </ul>

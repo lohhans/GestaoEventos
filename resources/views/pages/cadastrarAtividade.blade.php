@@ -1,4 +1,4 @@
-@extends('layout.template')
+@extends('layout.templateDetalhamentoEvento')
 
 @section('content')
 
@@ -44,10 +44,10 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="evento_id" class="col-md-4 col-form-label text-md-right">{{ __('Evento') }}</label>
+                                
 
                                 <div class="col-md-6">
-                                    <input id="evento_id" type="text" class="form-control" name="evento_id" required autofocus>
+                                    <input id="evento_id" type="hidden" value="{{$evento->id}}"class="form-control" name="evento_id" required autofocus>
                                 </div>
                             </div>
 

@@ -29,7 +29,7 @@
                         <li>
                         <div class="card text-center ">
                             <div class="card-header">
-                                Inscrições abertas
+                                Suas Participações
                             </div>
                             @foreach($eventos as $evento)
                                 <div class="card-body">

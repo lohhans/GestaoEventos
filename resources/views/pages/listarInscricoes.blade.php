@@ -27,7 +27,7 @@
 						      <th scope="col">Data de Inscricao</th>
 						      <th scope="col">Usuario</th>
 						      <th scope="col">Evento</th>
-                              <th scope="col">Voucher</th>
+
 
 						    </tr>
 						  </thead>
@@ -44,7 +44,7 @@
 							  <td><?php echo $inscricao->dataInscricao ?></td>
 							  <td><?php echo $inscricao->usuario->nome ?></td>
 							  <td><?php echo $inscricao->evento->descricao ?></td>
-                              <td><?php echo $inscricao->voucher->descricao ?></td>
+                              
 						    </tr>
 							<?php
 							}

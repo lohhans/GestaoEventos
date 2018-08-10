@@ -1,4 +1,4 @@
-@extends('layout.template')
+@extends('layout.templateDetalhamentoEvento')
 
 @section('content')
 
@@ -26,7 +26,8 @@
                     <div class="card-body">
                         <form action="/cadastrar/voucher" method="post">
                             @csrf
-
+                            <input class="form-control" type="hidden" name="evento_id" value="{{$evento->id}}">
+                            <input class="form-control" type="hidden" name="codigoIdentificador" value="{{str_random(10)}}">
                             <div class="form-group row">
                                 <label for="descricao" class="col-md-4 col-form-label text-md-right">{{ __('Descrição') }}</label>
 

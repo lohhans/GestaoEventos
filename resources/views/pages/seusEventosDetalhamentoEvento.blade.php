@@ -15,7 +15,8 @@
 
         <div class="row">
             <div class="col-md-3">
-                <div id="piechart" style="width: 450px; height: 250px;"></div>
+                <!-- <div id="piechart" style="width: 450px; height: 250px;"></div> -->
+                <div id="donutchart" style="width: 450px; height: 250px;"></div>
             </div>
             <div class="col-md-9">
                 <form action="/atualizar/evento" method="post">
@@ -93,8 +94,99 @@
 
             </div>
         </div>
-        <div id="donutchart" style="width: 450px; height: 250px;"></div>
+        </br>
+        </br>
+        </br>
+        <!-- <div id="donutchart" style="width: 450px; height: 250px;"></div> -->
+        <div class="row">
+            <ul class="list-group col-md-5" style="min-height: 400px; max-height: 400px; margin-bottom: 10px; overflow:scroll;
+                                                -webkit-overflow-scrolling: touch;">
 
+                <div class="row">
+
+        			<div class="col-md-1"></div>
+        			<div class="col-md-11">
+        				<div class="card">
+        					<div class="card-header">Atividades do evento {{$evento->descricao}}</div>
+        					<table class="table">
+        					  	<thead>
+        						    <tr>
+        						      <th scope="col">#</th>
+        						      <th scope="col">Descricao Atividade</th>
+        						      <th scope="col">Valor</th>
+
+        						    </tr>
+        						  </thead>
+        				  		<tbody>
+        							<?php
+        							$i = 0;
+        					  			foreach($atividades as $atividade){
+        									$i++;
+        					  		?>
+        						    <tr>
+        						      <th scope="row"><?php echo $i ?></th>
+        							  <td><?php echo $atividade->descricao ?></td>
+        							  <td><?php echo $atividade->valor ?></td>
+
+        						    </tr>
+        							<?php
+        							}
+        							?>
+
+        					  	</tbody>
+        					</table>
+        				</div>
+        			</div>
+        			<div class="col-md-2"></div>
+        		</div>
+            </ul>
+            <div class="col-md-1"></div>
+            <ul class="list-group col-md-5" style="min-height: 400px; max-height: 400px; margin-bottom: 10px; overflow:scroll;
+                                                -webkit-overflow-scrolling: touch;">
+
+
+        			<div class="col-md-1"></div>
+        			<div class="col-md-11">
+        				<div class="card">
+        					<div class="card-header">Vouchers do evento {{$evento->descricao}}</div>
+        					<table class="table">
+        					  	<thead>
+        						    <tr>
+        						      <th scope="col">#</th>
+                                      <th scope="col">Código Identificador</th>
+                                      <th scope="col">Descricao Voucher</th>
+        						      <th scope="col">Percentual Desconto</th>
+                                      <th scope="col">Limite Maximo de Uso</th>
+
+        						    </tr>
+        						  </thead>
+        				  		<tbody>
+        							<?php
+        							$i = 0;
+        					  			foreach($vouchers as $voucher){
+        									$i++;
+        					  		?>
+        						    <tr>
+        						      <th scope="row"><?php echo $i ?></th>
+                                      <td><?php echo $voucher->codigoIdentificador ?></td>
+                                      <td><?php echo $voucher->descricao ?></td>
+                                      <td><?php echo $voucher->percentual ?></td>
+                                      <td><?php echo $voucher->limite ?></td>
+
+
+        						    </tr>
+        							<?php
+        							}
+        							?>
+
+        					  	</tbody>
+        					</table>
+        				</div>
+        			</div>
+        			<div class="col-sm-2"></div>
+        		</div>
+            </ul>
+        </div>
 
 
     <!-- pizza -->

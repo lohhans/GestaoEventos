@@ -10,8 +10,12 @@
         @else
             <a class="nav-link text-white" href="/home">{{ __('Home') }}</a>
             <a class="nav-link text-white" href="/selecionar/evento">{{ __('Seus Eventos') }}</a>
-            <a class="nav-link text-white" href="/selecionar/evento">{{ __('Suas Participações') }}</a>
-
+            <!-- <a class="nav-link text-white" href="/selecionar/evento">{{ __('Suas Participações') }}</a> -->
+            <form action="/home/suasparticipacoes" method="post" id="formSuasParticipacoes">
+                @csrf
+                <input class="form-control" type="hidden" value="{{Auth::user()->id}}" name="usuario_id">
+                <a class="form-control bg-secondary border-0 text-white" onclick="document.getElementById('formSuasParticipacoes').submit()">Suas Participações</a>
+            </form>
         @endguest
         <div class="collapse navbar-collapse" id="navbarResponsive">
 
