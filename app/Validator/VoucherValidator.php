@@ -10,7 +10,7 @@ class VoucherValidator{
     public static function validate($dados){
         $validator = \Validator::make($dados, Voucher::$rules, Voucher::$messages);
         if(!$validator->errors()->isEmpty()){
-            throw new ValidationException($validator, "Erro ao validar voucher");
+            throw new ValidationException($validator, $validator->errors());
         }
     }
 }

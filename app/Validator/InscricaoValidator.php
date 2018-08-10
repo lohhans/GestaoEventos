@@ -14,7 +14,7 @@ class InscricaoValidator{
     									'O valor da inscricao nao pode ser inferior a 0');
         }
         if(!$validator->errors()->isEmpty()){
-            throw new ValidationException($validator, "Erro ao validar evento");
+            throw new ValidationException($validator, $validator->errors());
         }
     }
 }

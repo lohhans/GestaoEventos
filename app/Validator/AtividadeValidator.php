@@ -10,7 +10,7 @@ class AtividadeValidator{
     public static function validate($dados){
         $validator = \Validator::make($dados, Atividade::$rules, Atividade::$messages);
         if(!$validator->errors()->isEmpty()){
-            throw new ValidationException($validator, "Erro ao validar atividade");
+            throw new ValidationException($validator, $validator->errors());
         }
     }
 }
