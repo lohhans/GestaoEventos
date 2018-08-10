@@ -10,7 +10,6 @@ class Inscricao extends Model{
 
 	public static $rules = [
 		'valor' => 'required',
-		'dataInscricao' => 'required',
 		'usuario_id' => 'required',
 		'evento_id' => 'required'
 	];

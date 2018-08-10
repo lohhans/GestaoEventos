@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Voucher extends Model{
 
-    protected $fillable = ['descricao', 'limite', 'percentual'];
+    protected $fillable = ['descricao', 'limite', 'percentual', 'codigoIdentificador'];
 
 	public static $rules = [
 		'descricao' => 'required',
 		'limite' => 'required',
-		'percentual' => 'required'
+		'percentual' => 'required',
+        'codigoIdentificador' => 'required'
 	];
 
 	public static $messages = [
