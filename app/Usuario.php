@@ -15,9 +15,10 @@ class Usuario extends Authenticatable
 
     public static $rules = [
 		'nome' => 'required',
-		'email' => 'required',
+		'email' => 'required|email|unique:usuarios',
+        'cpf' => 'required|min:11|max:14|cpf|unique:usuarios',
 		'login' => 'required',
-		'password' => 'required',
+		'password' => 'required|min:6|max:15',
 		'tipousuario_id' => 'required'
 	];
 

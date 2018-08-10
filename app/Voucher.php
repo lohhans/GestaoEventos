@@ -10,12 +10,13 @@ class Voucher extends Model{
 
 	public static $rules = [
 		'descricao' => 'required',
-		'limite' => 'required',
-		'percentual' => 'required'
+		'limite' => 'required|numeric',
+		'percentual' => 'required|numeric'
 	];
 
 	public static $messages = [
-		'required'=> 'O campo :attribute é obrigatório'
+		'required'=> 'O campo :attribute é obrigatório',
+        'numeric' => 'Este valor deve ser um numero'
 	];
 
     public function inscricao(){
