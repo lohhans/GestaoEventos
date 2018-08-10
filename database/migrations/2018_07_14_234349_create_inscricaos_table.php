@@ -19,7 +19,7 @@ class CreateInscricaosTable extends Migration
             $table->dateTime('dataInscricao');
             $table->integer('usuario_id')->unsigned;
             $table->integer('evento_id')->unsigned;
-            $table->integer('voucher_id')->unsigned;
+            $table->integer('voucher_id')->nullable()->unsigned;
 
             $table->foreign('usuario_id')->references('id')->on('usuarios');
             $table->foreign('evento_id')->references('id')->on('eventos');
